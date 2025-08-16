@@ -1,5 +1,4 @@
 <?php
-// editar_propiedad.php - Editar propiedad del agente
 include 'funciones.php';
 validar_sesion();
 if (es_admin()) header('Location: panel.php');

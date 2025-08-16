@@ -1,5 +1,4 @@
 <?php
-// login.php
 include 'funciones.php';
 
 $error = '';

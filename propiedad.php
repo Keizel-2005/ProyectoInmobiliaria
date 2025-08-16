@@ -1,5 +1,4 @@
 <?php
-// propiedad.php - Detalle de propiedad
 include 'funciones.php';
 $id = intval($_GET['id']);
 $query = "SELECT p.*, u.nombre AS agente_nombre FROM propiedades p LEFT JOIN usuarios u ON p.agente_id = u.id WHERE p.id = $id";

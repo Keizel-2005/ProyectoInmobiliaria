@@ -1,5 +1,4 @@
 <?php
-// alquileres.php - Lista todos los alquileres
 include 'funciones.php';
 $alquileres = obtener_propiedades('alquiler');
 ?>

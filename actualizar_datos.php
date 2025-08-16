@@ -1,5 +1,4 @@
 <?php
-// actualizar_datos.php - Actualizar datos personales
 include 'funciones.php';
 validar_sesion();
 $id = $_SESSION['usuario_id'];

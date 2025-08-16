@@ -1,5 +1,4 @@
 <?php
-// panel.php - Panel según rol
 include 'funciones.php';
 validar_sesion();
 

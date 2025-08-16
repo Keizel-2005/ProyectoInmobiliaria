@@ -2,7 +2,7 @@
 include 'conexion_bd.php';
 
 function encriptar_contrasena($contrasena) {
-    return md5($contrasena); // En producción, usa password_hash() para mejor seguridad
+    return md5($contrasena); 
 }
 
 function validar_sesion() {

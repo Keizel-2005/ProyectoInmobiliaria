@@ -1,5 +1,4 @@
 <?php
-// enviar_contacto.php - Enviar email desde footer
 if (isset($_POST['nombre']) && isset($_POST['email']) && isset($_POST['mensaje'])) {
     $to = "info@utnsolutions.com"; // Cambia al email definido
     $subject = "Contacto desde el sitio web";

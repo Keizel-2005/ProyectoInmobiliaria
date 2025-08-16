@@ -1,5 +1,4 @@
 <?php
-// ventas.php - Lista todas las ventas
 include 'funciones.php';
 $ventas = obtener_propiedades('venta');
 ?>

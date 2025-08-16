@@ -1,5 +1,4 @@
 <?php
-// mis_propiedades.php - Listar propiedades del agente para editar/eliminar
 include 'funciones.php';
 validar_sesion();
 if (es_admin()) header('Location: panel.php');

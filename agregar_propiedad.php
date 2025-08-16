@@ -1,5 +1,4 @@
 <?php
-// agregar_propiedad.php - Para agentes agregar nueva propiedad
 include 'funciones.php';
 validar_sesion();
 if (es_admin()) header('Location: panel.php'); // Solo agentes

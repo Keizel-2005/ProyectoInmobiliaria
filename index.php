@@ -1,5 +1,4 @@
 <?php
-// index.php - Página principal
 include 'funciones.php';
 $config = obtener_config() ?? [];
 $destacadas = obtener_propiedades(null, 1, 3);
