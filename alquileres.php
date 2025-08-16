@@ -1,0 +1,32 @@
+<?php
+// alquileres.php - Lista todos los alquileres
+include 'funciones.php';
+$alquileres = obtener_propiedades('alquiler');
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Propiedades en Alquiler</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header><!-- Copiar header de index si se quiere --></header>
+    <section class="propiedades">
+        <h2>Propiedades en Alquiler</h2>
+        <div class="propiedades-grid">
+            <?php foreach ($alquileres as $prop): ?>
+                <div class="propiedad-card">
+                    <img src="<?php echo $prop['imagen_destacada']; ?>" alt="<?php echo $prop['titulo']; ?>">
+                    <div>
+                        <h3><?php echo $prop['titulo']; ?></h3>
+                        <p><?php echo $prop['desc_breve']; ?></p>
+                        <p>Precio: $<?php echo number_format($prop['precio'], 2); ?></p>
+                        <a href="propiedad.php?id=<?php echo $prop['id']; ?>">Ver más</a>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
+    <footer><!-- Copiar footer si se quiere --></footer>
+</body>
+</html>
