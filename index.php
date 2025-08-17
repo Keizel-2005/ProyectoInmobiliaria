@@ -22,16 +22,22 @@ if (isset($_POST['buscar'])) {
 <body>
     <header>
         <div class="logo">UTN Solutions Real State</div>
-        <nav>
-            <ul>
-                <li><a href="index.php">Inicio</a></li>
-                <li><a href="#quienes-somos">Quienes Somos</a></li>
-                <li><a href="alquileres.php">Alquileres</a></li>
-                <li><a href="ventas.php">Ventas</a></li>
-                <li><a href="#contacto">Contactenos</a></li>
-                <li><a href="login.php">Login</a></li>
-            </ul>
-        </nav>
+        <div class="header-menu-wrap">
+            <a href="login.php" class="login-btn">Login</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.php">Inicio</a></li>
+                    <li><a href="#quienes-somos">Quienes Somos</a></li>
+                    <li><a href="alquileres.php">Alquileres</a></li>
+                    <li><a href="ventas.php">Ventas</a></li>
+                    <li><a href="#contacto">Contactenos</a></li>
+                </ul>
+                <form class="busqueda-form" method="post">
+                    <input type="text" name="busqueda" placeholder="Buscar propiedades..." required>
+                    <button type="submit" name="buscar">Buscar</button>
+                </form>
+            </nav>
+        </div>
     </header>
     <section class="banner">
         <img src="<?php echo $config['imagen_banner'] ?? 'banner.jpg'; ?>" alt="Banner">
@@ -40,14 +46,13 @@ if (isset($_POST['buscar'])) {
     <section id="quienes-somos" class="quienes-somos">
         <div>
             <h2>Quienes Somos</h2>
-            <p><?php echo $config['info_quienes_somos'] ?? 'Somos una empresa dedicada a...'; ?></p>
+            <p><?php echo $config['info_quienes_somos'] ?? 'Somos un equipo apasionado por el sector inmobiliario, comprometido en ayudarte a encontrar la 
+            propiedad ideal para ti y tu familia. Nos destacamos por nuestro profesionalismo, atención personalizada y conocimiento del mercado, brindando soluciones confiables y acompañamiento en cada paso del proceso. ¡Permítenos ayudarte a cumplir tus sueños!'; ?></p>
         </div>
-        <img src="<?php echo $config['imagen_quienes_somos'] ?? 'equipo.jpg'; ?>" alt="Equipo">
-    </section>
-    <form class="busqueda-form" method="post">
-        <input type="text" name="busqueda" placeholder="Buscar propiedades..." required>
-        <button type="submit" name="buscar">Buscar</button>
-    </form>
+<div class="quienes-img">
+            <img src="imagenes/quienesSomos.jpg" alt="Equipo">
+        </div>    </section>
+
     <?php if (!empty($propiedades_busqueda)): ?>
     <section class="propiedades">
         <h2>Resultados de Búsqueda</h2>
@@ -83,7 +88,7 @@ if (isset($_POST['buscar'])) {
         </div>
         <a href="ventas.php" class="ver-mas">Ver más</a>
     </section>
-    <section class="propiedades">
+    <section class="propiedades ventas-blanco">
         <h2>Propiedades en Venta</h2>
         <div class="propiedades-grid">
             <?php foreach ($ventas as $prop): ?>
@@ -118,18 +123,29 @@ if (isset($_POST['buscar'])) {
         <a href="alquileres.php" class="ver-mas">Ver más</a>
     </section>
     <footer id="contacto">
-        <p>Dirección: <?php echo $config['direccion'] ?? 'Dirección Ejemplo'; ?> | Teléfono: <?php echo $config['telefono'] ?? '8888-8888'; ?> | Email: <?php echo $config['email'] ?? 'info@utnsolutions.com'; ?></p>
-        <form action="enviar_contacto.php" method="post">
+        <div class="footer-info">
+            <p><img src="imagenes/marcador.png" alt="Dirección" class="footer-icon"> <span class="footer-label">Dirección:</span> <?php echo $config['direccion'] ?? 'Dirección Ejemplo'; ?></p>
+            <p><img src="imagenes/telefono.png" alt="Teléfono" class="footer-icon"> <span class="footer-label">Teléfono:</span> <?php echo $config['telefono'] ?? '8888-8888'; ?></p>
+            <p><img src="imagenes/email.png" alt="Email" class="footer-icon"> <span class="footer-label">Email:</span> <?php echo $config['email'] ?? 'info@utnsolutions.com'; ?></p>
+        </div>
+        <form class="footer-form" action="enviar_contacto.php" method="post">
+            <h3>Contactanos</h3>
             <input type="text" name="nombre" placeholder="Nombre" required>
             <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="telefono" placeholder="Teléfono" required>
             <textarea name="mensaje" placeholder="Mensaje" required></textarea>
             <button type="submit">Enviar</button>
         </form>
-        <div class="redes">
-            <a href="<?php echo $config['enlaces_facebook'] ?? '#'; ?>"><img src="facebook.png" alt="Facebook"></a>
-            <a href="<?php echo $config['enlaces_twitter'] ?? '#'; ?>"><img src="twitter.png" alt="Twitter"></a>
-            <a href="<?php echo $config['enlaces_instagram'] ?? '#'; ?>"><img src="instagram.png" alt="Instagram"></a>
+        <div class="footer-redes-wrap">
+            <div class="redes">
+                <a href="<?php echo $config['enlaces_facebook'] ?? '#'; ?>"><img src="imagenes/facebook.png" alt="Facebook"></a>
+                <a href="<?php echo $config['enlaces_twitter'] ?? '#'; ?>"><img src="imagenes/youtube.png" alt="Youtube"></a>
+                <a href="<?php echo $config['enlaces_instagram'] ?? '#'; ?>"><img src="imagenes/instagram.png" alt="Instagram"></a>
+            </div>
         </div>
+    </footer>
+    <footer class="footer-copy">
+        <p>Derechos reservados &copy; <?php echo date('Y'); ?> UTN Solutions Real State</p>
     </footer>
 </body>
 </html>

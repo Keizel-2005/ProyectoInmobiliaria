@@ -16,8 +16,12 @@ if (isset($_POST['agregar'])) {
     $agente_id = $_SESSION['usuario_id'];
 
     $imagen_destacada = '';
+
     if (isset($_FILES['imagen_destacada']) && $_FILES['imagen_destacada']['error'] == 0) {
         $imagen_destacada = subir_imagen($_FILES['imagen_destacada']);
+        if ($imagen_destacada === false) {
+            $errores[] = 'La imagen debe ser JPG, PNG, GIF o WEBP y menor a 2MB.';
+        }
     }
 
     if (empty($titulo) || empty($desc_breve) || $precio <= 0 || empty($imagen_destacada)) {

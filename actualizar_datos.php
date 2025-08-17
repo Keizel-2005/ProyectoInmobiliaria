@@ -10,7 +10,11 @@ if (isset($_POST['actualizar'])) {
     $nombre = $conexion->real_escape_string($_POST['nombre']);
     $telefono = $conexion->real_escape_string($_POST['telefono']);
     $correo = $conexion->real_escape_string($_POST['correo']);
-    $contrasena = !empty($_POST['contrasena']) ? encriptar_contrasena($_POST['contrasena']) : $user['contrasena'];
+    if (!empty($_POST['contrasena'])) {
+        $contrasena = encriptar_contrasena($_POST['contrasena']);
+    } else {
+        $contrasena = $user['contrasena'];
+    }
 
     if (empty($nombre) || empty($correo)) {
         $errores[] = 'Campos requeridos faltantes';

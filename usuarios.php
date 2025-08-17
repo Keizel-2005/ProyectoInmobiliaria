@@ -25,7 +25,12 @@ if (isset($_POST['guardar'])) {
     $correo = $conexion->real_escape_string($_POST['correo']);
     $usuario = $conexion->real_escape_string($_POST['usuario']);
     $privilegio = $conexion->real_escape_string($_POST['privilegio']);
-    $contrasena = !empty($_POST['contrasena']) ? encriptar_contrasena($_POST['contrasena']) : $user['contrasena'];
+
+    if (!empty($_POST['contrasena'])) {
+        $contrasena = encriptar_contrasena($_POST['contrasena']);
+    } else {
+        $contrasena = $user['contrasena'];
+    }
 
     if (empty($nombre) || empty($correo) || empty($usuario) || empty($privilegio)) {
         $errores[] = 'Campos requeridos faltantes';

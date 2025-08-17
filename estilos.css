@@ -1,233 +1,670 @@
+/* Íconos en la info de contacto del footer */
+.footer-info .footer-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 8px;
+    margin-bottom: 3px;
+    object-fit: contain;
+}
+footer.footer-copy {
+    background: #18183a;
+    color: #fff;
+    text-align: center;
+    height: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    width: 100%;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+/* Header menú con login a la derecha y opciones a la izquierda */
+.header-menu-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 40px;
+    margin-top: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.login-btn {
+    color: #18183a;
+    background: #ffd600;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    border-radius: 20px;
+    padding: 7px 28px;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: background 0.2s, color 0.2s;
+    margin-bottom: 10px;
+    align-self: flex-end;
+    margin-right: 40px;
+}
+.login-btn:hover {
+    background: #18183a;
+    color: #ffd600;
+}
+nav.main-nav {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+nav.main-nav ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 0;
+    padding-left: 0;
+    justify-content: flex-end;
+}
+nav.main-nav .busqueda-form {
+    position: static;
+    margin: 18px 0 0 0;
+    text-align: right;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: none;
+    box-shadow: none;
+}
+nav.main-nav .busqueda-form input {
+    width: 180px;
+    background: #fff;
+    border: 2px solid #ffd600;
+    border-radius: 20px 0 0 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    height: 20px;
+    margin: 0;
+    display: block;
+    font-size: 1rem;
+}
+nav.main-nav .busqueda-form button {
+    width: auto;
+    background: #fff;
+    border: 2px solid #ffd600;
+    border-left: none;
+    border-radius: 0 20px 20px 0;
+    color: #18183a;
+    font-weight: bold;
+    transition: background 0.2s, color 0.2s;
+    height: 40px;
+    font-size: 1rem;
+    padding: 0 18px;
+    box-sizing: border-box;
+    margin: 0;
+    display: block;
+}
+nav.main-nav .busqueda-form button:hover {
+    background: #ffd600;
+    color: #18183a;
+}
+/* Header layout con login arriba, menú a la izquierda y buscador debajo */
+
+nav.main-nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 40px;
+    margin-top: 10px;
+}
+nav.main-nav ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    justify-content: flex-start;
+    margin-bottom: 0;
+    padding-left: 0;
+}
+nav.main-nav ul .login-li {
+    margin-left: auto;
+    align-self: flex-start;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.login-btn {
+    color: #18183a;
+    background: #ffd600;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    border-radius: 20px;
+    padding: 7px 28px;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: background 0.2s, color 0.2s;
+    margin-bottom: 0;
+}
+.login-btn:hover {
+    background: #18183a;
+    color: #ffd600;
+}
+nav.main-nav .busqueda-form {
+    position: static;
+    margin: 18px 0 0 0;
+    text-align: left;
+    width: 100%;
+}
+nav.main-nav .busqueda-form input {
+    width: 180px;
+}
+nav.main-nav .busqueda-form button {
+    width: auto;
+}
+
+.header-left .busqueda-form {
+    position: static;
+    margin: 18px 0 0 0;
+    text-align: left;
+    width: 100%;
+}
+.header-left .busqueda-form input {
+    width: 180px;
+}
+.header-left .busqueda-form button {
+    width: auto;
+}
+
+@media (max-width: 900px) {
+    .header-left {
+        margin-left: 10px;
+    }
+    .header-left nav ul li a {
+        font-size: 15px;
+    }
+    .header-left .busqueda-form input {
+        width: 120px;
+    }
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background: #fff;
+    color: #22223b;
 }
+
 
 header {
-    background-color: #1a237e;
-    color: white;
-    padding: 10px 20px;
+    background: #0a0a23;
+    color: #fff;
+    padding: 0;
+    min-height: 90px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 10;
 }
 
+
 .logo {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
+    letter-spacing: 1px;
+    margin-left: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
+
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 18px;
     margin: 0;
     padding: 0;
+    align-items: center;
 }
+
 
 nav ul li a {
-    color: white;
+    color: #ffd600;
     text-decoration: none;
     font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
 }
+nav ul li a:hover {
+    color: #fff;
+}
+
 
 .banner {
-    background-color: #1a237e;
-    color: white;
-    text-align: center;
-    padding: 60px 20px;
     position: relative;
+    width: 100%;
+    min-height: 620px;
+    background: #0a0a23 url('imagenes/casaInicio.jpg') center center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
-
-.banner img {
-    max-width: 200px;
-    margin-bottom: 20px;
+.banner::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(10,10,35,0.25);
+    z-index: 2;
 }
-
 .banner h1 {
-    font-size: 36px;
+    position: relative;
+    z-index: 3;
+    color: #fff;
+    font-size: 2.2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
     margin: 0;
+    text-align: center;
+    padding: 0 20px;
+    text-shadow: 0 2px 8px #000;
 }
+
 
 .quienes-somos {
-    background-color: #ffffff;
-    padding: 40px 20px;
+    background: #f8f8fa;
+    padding: 50px 0 30px 0;
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 80px;
+    max-width: auto;
+    margin: 0 auto;
 }
-
-.quienes-somos div {
-    flex: 1;
+.quienes-somos .quienes-desc {
+    flex: 1.2;
+    margin-left: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-
 .quienes-somos h2 {
-    font-size: 28px;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #22223b;
 }
-
 .quienes-somos p {
-    font-size: 16px;
+    font-size: 1.05rem;
+    color: #22223b;
+    margin-top: 0;
+}
+.quienes-somos .quienes-img {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 60px;
+}
+.quienes-somos .quienes-img img {
+    max-width: 840px;
+    min-width: 420px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
 }
 
-.quienes-somos img {
-    max-width: 40%;
-    height: auto;
-}
 
 .propiedades {
-    background-color: #1a237e;
-    color: white;
-    padding: 40px 20px;
+    background: #18183a;
+    color: #fff;
+    padding: 40px 0 30px 0;
     text-align: center;
+}
+
+/* Fondo blanco para la sección de Propiedades en Venta */
+.propiedades.ventas-blanco {
+    background: #fff;
+    color: #22223b;
 }
 
 .propiedades h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    letter-spacing: 1px;
 }
-
 .propiedades-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
     max-width: 1200px;
     margin: 0 auto;
 }
-
 .propiedad-card {
-    background-color: #ffffff;
-    color: #333;
+    background: #fff;
+    color: #18183a;
     border-radius: 8px;
     overflow: hidden;
     text-align: left;
+    min-width: 320px;
+    max-width: 340px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
 }
-
 .propiedad-card img {
     width: 100%;
-    height: 200px;
+    height: 170px;
     object-fit: cover;
 }
-
 .propiedad-card div {
-    padding: 15px;
+    padding: 18px 16px 10px 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-
 .propiedad-card h3 {
-    font-size: 20px;
-    margin: 0 0 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
 }
-
 .propiedad-card p {
-    font-size: 14px;
-    margin: 5px 0;
+    font-size: 0.98rem;
+    margin: 4px 0;
 }
-
+.propiedad-card .precio {
+    color: #ffd600;
+    font-weight: bold;
+    font-size: 1.08rem;
+    margin-top: 6px;
+}
 .ver-mas {
     display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #ffeb3b;
-    color: #1a237e;
-    text-decoration: none;
+    margin-top: 18px;
+    padding: 8px 28px;
+    background: #fff;
+    color: #18183a;
+    border: 2px solid #ffd600;
     border-radius: 5px;
     font-weight: bold;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background 0.2s, color 0.2s;
 }
+.ver-mas:hover {
+    background: #ffd600;
+    color: #18183a;
+}
+
 
 footer {
-    background-color: #ffeb3b;
-    padding: 20px;
+    background: #ffd600;
+    padding: 32px 0 0 0;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     flex-wrap: wrap;
+    min-height: 220px;
+    color: #18183a;
+    font-size: 1rem;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
 }
-
-footer p {
-    margin: 0;
+footer .footer-info {
+    margin-left: 60px;
+    flex: 1 1 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: 200px;
+    height: 100%;
 }
-
-footer form {
+footer .footer-info p {
+    margin: 0 0 10px 0;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: left;
+}
+footer .footer-info .footer-label {
+    font-weight: bold;
+}
+footer .footer-form {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 18px 22px 12px 22px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-width: 300px;
+    min-width: 260px;
+    max-width: 320px;
+    margin-right: 60px;
+    align-items: flex-start;
+    flex: 1 1 260px;
+    height: 100%;
+    justify-content: center;
 }
-
-footer input, footer textarea {
-    padding: 10px;
+footer .footer-form h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #18183a;
+    align-self: flex-start;
+}
+footer .footer-form input, footer .footer-form textarea {
+    padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
 }
-
-footer button {
-    padding: 10px;
-    background-color: #1a237e;
-    color: white;
+footer .footer-form button {
+    padding: 8px 0;
+    background: #18183a;
+    color: #fff;
     border: none;
     border-radius: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 8px;
     cursor: pointer;
+    transition: background 0.2s;
+    width: 100%;
+}
+footer .footer-form button:hover {
+    background: #ffd600;
+    color: #18183a;
+}
+footer .footer-redes-wrap {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+footer .redes {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer .redes a {
+    margin: 0 8px;
+    display: inline-block;
+}
+footer .redes img {
+    width: 32px;
+    height: 32px;
+}
+footer .footer-info {
+    margin-left: 60px;
+    flex: 1.2;
+}
+footer .footer-info p {
+    margin: 0 0 10px 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+footer .footer-info .footer-label {
+    font-weight: bold;
+}
+footer .footer-logo {
+    margin: 0 40px 0 0;
+    text-align: center;
+}
+footer .footer-logo img {
+    width: 70px;
+    margin-bottom: 8px;
+}
+footer .footer-logo .logo-text {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+footer .redes {
+    margin-top: 10px;
+}
+footer .redes a {
+    margin: 0 8px;
+    display: inline-block;
+}
+footer .redes img {
+    width: 32px;
+    height: 32px;
+}
+footer form {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 18px 22px 12px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 260px;
+    max-width: 320px;
+    margin-right: 60px;
+}
+footer form label {
+    font-size: 1rem;
+    font-weight: 500;
+}
+footer input, footer textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+footer button {
+    padding: 8px 0;
+    background: #18183a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+footer button:hover {
+    background: #ffd600;
+    color: #18183a;
+}
+footer .footer-copy {
+    width: 100%;
+    text-align: center;
+    margin-top: 18px;
+    font-size: 0.98rem;
+    font-weight: 500;
 }
 
-.redes a {
-    margin-left: 10px;
-}
 
-.redes img {
-    width: 30px;
-    height: 30px;
-}
-
-/* Estilos para formularios y panel */
 form {
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
-    background: white;
+    background: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
-
 form label {
     display: block;
     margin-top: 10px;
+    font-weight: 500;
 }
-
 form input, form select, form textarea {
     width: 100%;
     padding: 8px;
     margin-top: 5px;
+    font-size: 1rem;
 }
-
 form button {
     margin-top: 20px;
     padding: 10px 20px;
-    background: #1a237e;
-    color: white;
+    background: #18183a;
+    color: #fff;
     border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+form button:hover {
+    background: #ffd600;
+    color: #18183a;
 }
 
+
 .error {
-    color: red;
-    font-size: 12px;
+    color: #d32f2f;
+    font-size: 13px;
+    margin-top: 4px;
 }
+
 
 /* Búsqueda */
 .busqueda-form {
-    text-align: center;
-    margin: 20px 0;
+    text-align: right;
+    margin: 0 60px 0 0;
+    position: absolute;
+    right: 0;
+    top: 32px;
+    z-index: 20;
 }
-
 .busqueda-form input {
-    padding: 10px;
-    width: 300px;
+    padding: 8px 12px;
+    width: 220px;
+    border-radius: 20px 0 0 20px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    outline: none;
 }
-
 .busqueda-form button {
-    padding: 10px 20px;
-    background: #ffeb3b;
-    border: none;
+    padding: 8px 18px;
+    background: #fff;
+    color: #18183a;
+    border: 2px solid #ffd600;
+    border-radius: 0 20px 20px 0;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.busqueda-form button:hover {
+    background: #ffd600;
+    color: #18183a;
 }

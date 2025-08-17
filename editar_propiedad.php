@@ -21,8 +21,14 @@ if (isset($_POST['actualizar'])) {
     $ubicacion = $conexion->real_escape_string($_POST['ubicacion']);
 
     $imagen_destacada = $prop['imagen_destacada'];
+
     if (isset($_FILES['imagen_destacada']) && $_FILES['imagen_destacada']['error'] == 0) {
-        $imagen_destacada = subir_imagen($_FILES['imagen_destacada']);
+        $tmp_img = subir_imagen($_FILES['imagen_destacada']);
+        if ($tmp_img === false) {
+            $errores[] = 'La imagen debe ser JPG, PNG, GIF o WEBP y menor a 2MB.';
+        } else {
+            $imagen_destacada = $tmp_img;
+        }
     }
 
     if (empty($titulo) || empty($desc_breve) || $precio <= 0) {

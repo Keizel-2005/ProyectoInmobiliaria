@@ -5,7 +5,6 @@ $error = '';
 if (isset($_POST['login'])) {
     $usuario = $conexion->real_escape_string($_POST['usuario']);
     $contrasena = encriptar_contrasena($_POST['contrasena']);
-    
     $query = "SELECT * FROM usuarios WHERE usuario = '$usuario' AND contrasena = '$contrasena'";
     $result = $conexion->query($query);
     if ($row = $result->fetch_assoc()) {
