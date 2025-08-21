@@ -14,9 +14,14 @@ $usuario_id = $_SESSION['usuario_id'];
 </head>
 <body>
     <header>
-        <div class="logo">UTN Solutions Real State</div>
+       <div class="logo">
+            <img src="imagenes/logo.png" alt="" style="width: 50px; height: 50px; vertical-align: middle; margin-right: 10px;">
+            UTN Solutions Real State
+        </div>
         <div class="header-menu-wrap">
-            <a href="cerrar_sesion.php" class="login-btn">Cerrar Sesión</a>
+            <a href="login.php" class="login-btn">
+                <img src="imagenes/login.png" alt="Login" style="width: 32px; height: 32px; vertical-align: middle;">
+            </a>
             <nav class="main-nav">
                 <ul>
                     <?php if (es_admin()): ?>
@@ -34,7 +39,7 @@ $usuario_id = $_SESSION['usuario_id'];
         </div>
     </header>
     <section class="banner">
-        <img src="<?php echo $config['imagen_banner'] ?? 'banner.jpg'; ?>" alt="Banner">
+        <img src="<?php echo $config['imagen_banner'] ?? 'banner.jpg'; ?>" alt="">
         <h1>Bienvenido al Panel</h1>
     </section>
     <main>

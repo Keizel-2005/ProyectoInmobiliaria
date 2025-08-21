@@ -1,18 +1,8 @@
 <?php
-
-// Incluye la conexión a la base de datos
 include 'conexion_bd.php';
-
-
-
-// Encripta la contraseña usando md5 (no recomendado para producción)
 function encriptar_contrasena($contrasena) {
     return md5($contrasena);
 }
-
-
-// La función verificar_contrasena ha sido eliminada.
-
 
 // Valida que el usuario haya iniciado sesión
 function validar_sesion() {
@@ -23,12 +13,10 @@ function validar_sesion() {
     }
 }
 
-
 // Verifica si el usuario es administrador
 function es_admin() {
     return isset($_SESSION['privilegio']) && $_SESSION['privilegio'] === 'administrador';
 }
-
 
 // Obtiene la configuración general del sitio
 function obtener_config() {
@@ -37,7 +25,6 @@ function obtener_config() {
     $result = $conexion->query($query);
     return $result->fetch_assoc();
 }
-
 
 // Obtiene propiedades según filtros
 function obtener_propiedades($tipo = null, $destacada = null, $limit = null) {
@@ -53,7 +40,6 @@ function obtener_propiedades($tipo = null, $destacada = null, $limit = null) {
     return $result->fetch_all(MYSQLI_ASSOC);
 }
 
-
 // Busca propiedades por texto
 function buscar_propiedades($busqueda) {
     global $conexion;
@@ -62,7 +48,6 @@ function buscar_propiedades($busqueda) {
     $result = $conexion->query($query);
     return $result->fetch_all(MYSQLI_ASSOC);
 }
-
 
 // Sube una imagen validando tipo y tamaño
 function subir_imagen($archivo, $destino = 'imagenes/') {

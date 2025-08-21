@@ -13,19 +13,22 @@ if (isset($_POST['buscar'])) {
 ?>
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <title>UTN Solutions Real State</title>
     <link rel="stylesheet" href="estilos.css">
     <link rel="icon" href="<?php echo $config['icono_principal'] ?? 'icono.png'; ?>">
 </head>
-
 <body>
     <header>
-        <div class="logo">UTN Solutions Real State</div>
+       <div class="logo">
+            <img src="imagenes/logo.png" alt="" style="width: 50px; height: 50px; vertical-align: middle; margin-right: 10px;">
+            UTN Solutions Real State
+        </div>
         <div class="header-menu-wrap">
-            <a href="login.php" class="login-btn">Login</a>
+            <a href="login.php" class="login-btn">
+                <img src="imagenes/login.png" alt="Login" style="width: 32px; height: 32px; vertical-align: middle;">
+            </a>
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.php">Inicio</a></li>
@@ -60,7 +63,7 @@ if (isset($_POST['buscar'])) {
         </section>
     <?php endif; ?>
     <section class="banner">
-        <img src="<?php echo $config['imagen_banner'] ?? 'banner.jpg'; ?>" alt="Banner">
+        <img src="<?php echo $config['imagen_banner'] ?? 'casaInicio.jpg'; ?>" alt="">
         <h1><?php echo $config['mensaje_banner'] ?? 'PERMITENOS AYUDARTE A CUMPLIR TUS SUEÑOS'; ?></h1>
     </section>
     <section id="quienes-somos" class="quienes-somos">
@@ -76,7 +79,6 @@ if (isset($_POST['buscar'])) {
     <section class="propiedades">
         <h2>Propiedades Destacadas</h2>
         <div class="propiedades-grid">
-
             <?php foreach ($destacadas as $prop): ?>
                 <div class="propiedad-card">
                     <img src="<?php echo $prop['imagen_destacada']; ?>" alt="<?php echo $prop['titulo']; ?>">
@@ -88,12 +90,10 @@ if (isset($_POST['buscar'])) {
                 </div>
             <?php endforeach; ?>
         </div>
-        
     </section>
     <section class="propiedades ventas-blanco">
         <h2>Propiedades en Venta</h2>
         <div class="propiedades-grid">
-            <!-- Ejemplos en Venta -->
             <?php foreach ($ventas as $prop): ?>
                 <div class="propiedad-card">
                     <img src="<?php echo $prop['imagen_destacada']; ?>" alt="<?php echo $prop['titulo']; ?>">
@@ -151,5 +151,4 @@ if (isset($_POST['buscar'])) {
         <p>Derechos reservados &copy; <?php echo date('Y'); ?> UTN Solutions Real State</p>
     </footer>
 </body>
-
 </html>

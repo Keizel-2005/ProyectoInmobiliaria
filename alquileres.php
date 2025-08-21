@@ -13,9 +13,14 @@ $alquileres = obtener_propiedades('alquiler');
 </head>
 <body>
     <header>
-        <div class="logo">UTN Solutions Real State</div>
-        <div class="header-menu-wrap">
-            <a href="login.php" class="login-btn">Login</a>
+ <div class="logo">
+            <img src="imagenes/logo.png" alt="" style="width: 50px; height: 50px; vertical-align: middle; margin-right: 10px;">
+            UTN Solutions Real State
+        </div>        
+         <div class="header-menu-wrap">
+            <a href="login.php" class="login-btn">
+                <img src="imagenes/login.png" alt="Login" style="width: 32px; height: 32px; vertical-align: middle;">
+            </a>
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.php">Inicio</a></li>
