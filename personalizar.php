@@ -64,28 +64,50 @@ if (isset($_POST['actualizar'])) {
 <head>
     <title>Personalizar Página</title>
     <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <form method="post" enctype="multipart/form-data">
-        <label>Colores:</label>
-        <select name="colores">
-            <option value="azul,amarillo,gris" <?php if ($config['colores'] == 'azul,amarillo,gris') echo 'selected'; ?>>Azul, Amarillo, Gris</option>
-            <option value="blanco,gris" <?php if ($config['colores'] == 'blanco,gris') echo 'selected'; ?>>Blanco, Gris</option>
-        </select>
-        <label>Ícono Principal:</label><input type="file" name="icono_principal">
-        <label>Ícono Blanco:</label><input type="file" name="icono_blanco">
-        <label>Imagen Banner:</label><input type="file" name="imagen_banner">
-        <label>Mensaje Banner:</label><input type="text" name="mensaje_banner" value="<?php echo $config['mensaje_banner']; ?>" required>
-        <label>Info Quienes Somos:</label><textarea name="info_quienes_somos" required><?php echo $config['info_quienes_somos']; ?></textarea>
-        <label>Imagen Quienes Somos:</label><input type="file" name="imagen_quienes_somos">
-        <label>Facebook:</label><input type="url" name="enlaces_facebook" value="<?php echo $config['enlaces_facebook']; ?>">
-        <label>Twitter:</label><input type="url" name="enlaces_twitter" value="<?php echo $config['enlaces_twitter']; ?>">
-        <label>Instagram:</label><input type="url" name="enlaces_instagram" value="<?php echo $config['enlaces_instagram']; ?>">
-        <label>Dirección:</label><input type="text" name="direccion" value="<?php echo $config['direccion']; ?>" required>
-        <label>Teléfono:</label><input type="text" name="telefono" value="<?php echo $config['telefono']; ?>" required>
-        <label>Email:</label><input type="email" name="email" value="<?php echo $config['email']; ?>" required>
-        <?php foreach ($errores as $err): ?><p class="error"><?php echo $err; ?></p><?php endforeach; ?>
-        <button type="submit" name="actualizar">Actualizar</button>
-    </form>
+    <header>
+        <div class="logo">UTN Solutions Real State</div>
+        <div class="header-menu-wrap">
+            <a href="panel.php" class="login-btn">Volver</a>
+        </div>
+    </header>
+    <section class="form-section">
+        <h2>Personalizar Página</h2>
+        <form class="form-propiedad" method="post" enctype="multipart/form-data" autocomplete="off">
+            <label for="colores">Colores:</label>
+            <select id="colores" name="colores">
+                <option value="azul,amarillo,gris" <?php if ($config['colores'] == 'azul,amarillo,gris') echo 'selected'; ?>>Azul, Amarillo, Gris</option>
+                <option value="blanco,gris" <?php if ($config['colores'] == 'blanco,gris') echo 'selected'; ?>>Blanco, Gris</option>
+            </select>
+            <label for="icono_principal"><i class="fa-solid fa-image"></i> Ícono Principal:</label>
+            <input type="file" id="icono_principal" name="icono_principal">
+            <label for="icono_blanco"><i class="fa-solid fa-image"></i> Ícono Blanco:</label>
+            <input type="file" id="icono_blanco" name="icono_blanco">
+            <label for="imagen_banner"><i class="fa-solid fa-image"></i> Imagen Banner:</label>
+            <input type="file" id="imagen_banner" name="imagen_banner">
+            <label for="mensaje_banner">Mensaje Banner:</label>
+            <input type="text" id="mensaje_banner" name="mensaje_banner" value="<?php echo $config['mensaje_banner']; ?>" required>
+            <label for="info_quienes_somos">Info Quienes Somos:</label>
+            <textarea id="info_quienes_somos" name="info_quienes_somos" required><?php echo $config['info_quienes_somos']; ?></textarea>
+            <label for="imagen_quienes_somos"><i class="fa-solid fa-image"></i> Imagen Quienes Somos:</label>
+            <input type="file" id="imagen_quienes_somos" name="imagen_quienes_somos">
+            <label for="enlaces_facebook"><i class="fa-brands fa-facebook"></i> Facebook:</label>
+            <input type="url" id="enlaces_facebook" name="enlaces_facebook" value="<?php echo $config['enlaces_facebook']; ?>">
+            <label for="enlaces_twitter"><i class="fa-brands fa-x-twitter"></i> Twitter:</label>
+            <input type="url" id="enlaces_twitter" name="enlaces_twitter" value="<?php echo $config['enlaces_twitter']; ?>">
+            <label for="enlaces_instagram"><i class="fa-brands fa-instagram"></i> Instagram:</label>
+            <input type="url" id="enlaces_instagram" name="enlaces_instagram" value="<?php echo $config['enlaces_instagram']; ?>">
+            <label for="direccion"><i class="fa-solid fa-location-dot"></i> Dirección:</label>
+            <input type="text" id="direccion" name="direccion" value="<?php echo $config['direccion']; ?>" required>
+            <label for="telefono"><i class="fa-solid fa-phone"></i> Teléfono:</label>
+            <input type="text" id="telefono" name="telefono" value="<?php echo $config['telefono']; ?>" required>
+            <label for="email"><i class="fa-solid fa-envelope"></i> Email:</label>
+            <input type="email" id="email" name="email" value="<?php echo $config['email']; ?>" required>
+            <?php foreach ($errores as $err): ?><p class="error"><i class="fa-solid fa-circle-exclamation"></i> <?php echo $err; ?></p><?php endforeach; ?>
+            <button type="submit" name="actualizar"><i class="fa-solid fa-floppy-disk"></i> Actualizar</button>
+        </form>
+    </section>
 </body>
 </html>

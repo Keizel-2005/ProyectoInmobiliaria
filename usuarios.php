@@ -57,35 +57,56 @@ $usuarios = $conexion->query("SELECT * FROM usuarios")->fetch_all(MYSQLI_ASSOC);
 <head>
     <title>Gestionar Usuarios</title>
     <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <h2>Usuarios</h2>
-    <table>
-        <tr><th>ID</th><th>Nombre</th><th>Usuario</th><th>Privilegio</th><th>Acciones</th></tr>
-        <?php foreach ($usuarios as $u): ?>
-            <tr>
-                <td><?php echo $u['id']; ?></td>
-                <td><?php echo $u['nombre']; ?></td>
-                <td><?php echo $u['usuario']; ?></td>
-                <td><?php echo $u['privilegio']; ?></td>
-                <td><a href="usuarios.php?id=<?php echo $u['id']; ?>">Editar</a> | <a href="usuarios.php?accion=eliminar&id=<?php echo $u['id']; ?>" onclick="return confirm('¿Seguro?');">Eliminar</a></td>
-            </tr>
-        <?php endforeach; ?>
-    </table>
-    <h2><?php echo $id ? 'Editar' : 'Crear'; ?> Usuario</h2>
-    <form method="post">
-        <label>Nombre:</label><input type="text" name="nombre" value="<?php echo $user['nombre'] ?? ''; ?>" required>
-        <label>Teléfono:</label><input type="text" name="telefono" value="<?php echo $user['telefono'] ?? ''; ?>">
-        <label>Correo:</label><input type="email" name="correo" value="<?php echo $user['correo'] ?? ''; ?>" required>
-        <label>Usuario:</label><input type="text" name="usuario" value="<?php echo $user['usuario'] ?? ''; ?>" required>
-        <label>Contraseña:</label><input type="password" name="contrasena" <?php if (!$id) echo 'required'; ?>>
-        <label>Privilegio:</label>
-        <select name="privilegio">
-            <option value="administrador" <?php if (isset($user['privilegio']) && $user['privilegio'] == 'administrador') echo 'selected'; ?>>Administrador</option>
-            <option value="agente_ventas" <?php if (isset($user['privilegio']) && $user['privilegio'] == 'agente_ventas') echo 'selected'; ?>>Agente de Ventas</option>
-        </select>
-        <?php foreach ($errores as $err): ?><p class="error"><?php echo $err; ?></p><?php endforeach; ?>
-        <button type="submit" name="guardar">Guardar</button>
-    </form>
+    <header>
+        <div class="logo">UTN Solutions Real State</div>
+        <div class="header-menu-wrap">
+            <a href="panel.php" class="login-btn">Volver</a>
+        </div>
+    </header>
+    <section class="mis-prop-section">
+        <h2>Usuarios</h2>
+        <div class="tabla-prop-wrap">
+            <table class="tabla-propiedades">
+                <tr><th>ID</th><th>Nombre</th><th>Usuario</th><th>Privilegio</th><th>Acciones</th></tr>
+                <?php foreach ($usuarios as $u): ?>
+                    <tr>
+                        <td><?php echo $u['id']; ?></td>
+                        <td><?php echo $u['nombre']; ?></td>
+                        <td><?php echo $u['usuario']; ?></td>
+                        <td><?php echo $u['privilegio']; ?></td>
+                        <td>
+                            <a href="usuarios.php?id=<?php echo $u['id']; ?>" class="tabla-btn editar" title="Editar"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
+                            <a href="usuarios.php?accion=eliminar&id=<?php echo $u['id']; ?>" class="tabla-btn eliminar" onclick="return confirm('¿Seguro?');" title="Eliminar"><i class="fa-solid fa-trash"></i> Eliminar</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        </div>
+    </section>
+    <section class="form-section">
+        <h2><?php echo $id ? 'Editar' : 'Crear'; ?> Usuario</h2>
+        <form class="form-propiedad" method="post" autocomplete="off">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" value="<?php echo $user['nombre'] ?? ''; ?>" required>
+            <label for="telefono">Teléfono:</label>
+            <input type="text" id="telefono" name="telefono" value="<?php echo $user['telefono'] ?? ''; ?>">
+            <label for="correo">Correo:</label>
+            <input type="email" id="correo" name="correo" value="<?php echo $user['correo'] ?? ''; ?>" required>
+            <label for="usuario">Usuario:</label>
+            <input type="text" id="usuario" name="usuario" value="<?php echo $user['usuario'] ?? ''; ?>" required>
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" name="contrasena" <?php if (!$id) echo 'required'; ?> autocomplete="new-password">
+            <label for="privilegio">Privilegio:</label>
+            <select id="privilegio" name="privilegio">
+                <option value="administrador" <?php if (isset($user['privilegio']) && $user['privilegio'] == 'administrador') echo 'selected'; ?>>Administrador</option>
+                <option value="agente_ventas" <?php if (isset($user['privilegio']) && $user['privilegio'] == 'agente_ventas') echo 'selected'; ?>>Agente de Ventas</option>
+            </select>
+            <?php foreach ($errores as $err): ?><p class="error"><i class="fa-solid fa-circle-exclamation"></i> <?php echo $err; ?></p><?php endforeach; ?>
+            <button type="submit" name="guardar"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
+        </form>
+    </section>
 </body>
 </html>
