@@ -1,7 +1,7 @@
 <?php
 include 'funciones.php';
 validar_sesion();
-if (es_admin()) header('Location: panel.php'); // Solo agentes
+if (es_admin()) header('Location: panel.php');
 
 $errores = [];
 if (isset($_POST['agregar'])) {
@@ -39,29 +39,46 @@ if (isset($_POST['agregar'])) {
     }
 }
 ?>
+<?php $config = obtener_config() ?? []; ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta charset="UTF-8">
     <title>Agregar Propiedad</title>
     <link rel="stylesheet" href="estilos.css">
+    <link rel="icon" href="<?php echo $config['icono_principal'] ?? 'icono.png'; ?>">
 </head>
 <body>
-    <form method="post" enctype="multipart/form-data">
-        <label>Tipo:</label>
-        <select name="tipo" required>
-            <option value="alquiler">Alquiler</option>
-            <option value="venta">Venta</option>
-        </select>
-        <label>Destacada:</label><input type="checkbox" name="destacada">
-        <label>Título:</label><input type="text" name="titulo" required>
-        <label>Descripción Breve:</label><textarea name="desc_breve" required></textarea>
-        <label>Precio:</label><input type="number" name="precio" step="0.01" required>
-        <label>Imagen Destacada:</label><input type="file" name="imagen_destacada" required>
-        <label>Descripción Larga:</label><textarea name="desc_larga" required></textarea>
-        <label>Mapa (embed):</label><textarea name="mapa"></textarea>
-        <label>Ubicación:</label><input type="text" name="ubicacion" required>
-        <?php foreach ($errores as $err): ?><p class="error"><?php echo $err; ?></p><?php endforeach; ?>
-        <button type="submit" name="agregar">Agregar</button>
-    </form>
+    <header>
+        <div class="logo">UTN Solutions Real State</div>
+        <div class="header-menu-wrap">
+            <a href="panel.php" class="login-btn">Volver</a>
+            
+    </header>
+    <main>
+        <section class="form-section">
+            <h2>Agregar Propiedad</h2>
+            <form class="form-propiedad" method="post" enctype="multipart/form-data">
+                <label>Tipo:</label>
+                <select name="tipo" required>
+                    <option value="alquiler">Alquiler</option>
+                    <option value="venta">Venta</option>
+                </select>
+                <label><input type="checkbox" name="destacada"> Destacada</label>
+                <label>Título:</label><input type="text" name="titulo" required>
+                <label>Descripción Breve:</label><textarea name="desc_breve" required></textarea>
+                <label>Precio:</label><input type="number" name="precio" step="0.01" required>
+                <label>Imagen Destacada:</label><input type="file" name="imagen_destacada" required>
+                <label>Descripción Larga:</label><textarea name="desc_larga" required></textarea>
+                <label>Mapa (embed):</label><textarea name="mapa"></textarea>
+                <label>Ubicación:</label><input type="text" name="ubicacion" required>
+                <?php foreach ($errores as $err): ?><p class="error"><?php echo $err; ?></p><?php endforeach; ?>
+                <button type="submit" name="agregar">Agregar</button>
+            </form>
+        </section>
+    </main>
+    <footer class="footer-copy">
+        <p>Derechos reservados &copy; <?php echo date('Y'); ?> UTN Solutions Real State</p>
+    </footer>
 </body>
 </html>

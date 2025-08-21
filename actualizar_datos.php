@@ -30,20 +30,37 @@ if (isset($_POST['actualizar'])) {
     }
 }
 ?>
+<?php $config = obtener_config() ?? []; ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta charset="UTF-8">
     <title>Actualizar Datos Personales</title>
     <link rel="stylesheet" href="estilos.css">
+    <link rel="icon" href="<?php echo $config['icono_principal'] ?? 'icono.png'; ?>">
 </head>
 <body>
-    <form method="post">
-        <label>Nombre:</label><input type="text" name="nombre" value="<?php echo $user['nombre']; ?>" required>
-        <label>Teléfono:</label><input type="text" name="telefono" value="<?php echo $user['telefono']; ?>">
-        <label>Correo:</label><input type="email" name="correo" value="<?php echo $user['correo']; ?>" required>
-        <label>Contraseña Nueva (opcional):</label><input type="password" name="contrasena">
-        <?php foreach ($errores as $err): ?><p class="error"><?php echo $err; ?></p><?php endforeach; ?>
-        <button type="submit" name="actualizar">Actualizar</button>
-    </form>
+    <header>
+        <div class="logo">UTN Solutions Real State</div>
+        <div class="header-menu-wrap">
+            <a href="panel.php" class="login-btn">Volver</a>
+        </div>
+    </header>
+    <main>
+        <section class="form-section">
+            <h2>Actualizar Datos Personales</h2>
+            <form class="form-propiedad" method="post">
+                <label>Nombre:</label><input type="text" name="nombre" value="<?php echo $user['nombre']; ?>" required>
+                <label>Teléfono:</label><input type="text" name="telefono" value="<?php echo $user['telefono']; ?>">
+                <label>Correo:</label><input type="email" name="correo" value="<?php echo $user['correo']; ?>" required>
+                <label>Contraseña Nueva (opcional):</label><input type="password" name="contrasena">
+                <?php foreach ($errores as $err): ?><p class="error"><?php echo $err; ?></p><?php endforeach; ?>
+                <button type="submit" name="actualizar">Actualizar</button>
+            </form>
+        </section>
+    </main>
+    <footer class="footer-copy">
+        <p>Derechos reservados &copy; <?php echo date('Y'); ?> UTN Solutions Real State</p>
+    </footer>
 </body>
 </html>

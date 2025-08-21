@@ -13,12 +13,14 @@ if (isset($_POST['buscar'])) {
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>UTN Solutions Real State</title>
     <link rel="stylesheet" href="estilos.css">
     <link rel="icon" href="<?php echo $config['icono_principal'] ?? 'icono.png'; ?>">
 </head>
+
 <body>
     <header>
         <div class="logo">UTN Solutions Real State</div>
@@ -39,6 +41,24 @@ if (isset($_POST['buscar'])) {
             </nav>
         </div>
     </header>
+    <?php if (!empty($propiedades_busqueda)): ?>
+        <section class="propiedades" style="margin-bottom: 0;">
+            <h2>Resultados de Búsqueda</h2>
+            <div class="propiedades-grid">
+                <?php foreach ($propiedades_busqueda as $prop): ?>
+                    <div class="propiedad-card">
+                        <img src="<?php echo $prop['imagen_destacada']; ?>" alt="<?php echo $prop['titulo']; ?>">
+                        <div>
+                            <h3><?php echo $prop['titulo']; ?></h3>
+                            <p><?php echo $prop['desc_breve']; ?></p>
+                            <p>Precio: $<?php echo number_format($prop['precio'], 2); ?></p>
+                            <a href="propiedad.php?id=<?php echo $prop['id']; ?>">Ver más</a>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </section>
+    <?php endif; ?>
     <section class="banner">
         <img src="<?php echo $config['imagen_banner'] ?? 'banner.jpg'; ?>" alt="Banner">
         <h1><?php echo $config['mensaje_banner'] ?? 'PERMITENOS AYUDARTE A CUMPLIR TUS SUEÑOS'; ?></h1>
@@ -49,31 +69,14 @@ if (isset($_POST['buscar'])) {
             <p><?php echo $config['info_quienes_somos'] ?? 'Somos un equipo apasionado por el sector inmobiliario, comprometido en ayudarte a encontrar la 
             propiedad ideal para ti y tu familia. Nos destacamos por nuestro profesionalismo, atención personalizada y conocimiento del mercado, brindando soluciones confiables y acompañamiento en cada paso del proceso. ¡Permítenos ayudarte a cumplir tus sueños!'; ?></p>
         </div>
-<div class="quienes-img">
+        <div class="quienes-img">
             <img src="imagenes/quienesSomos.jpg" alt="Equipo">
-        </div>    </section>
-
-    <?php if (!empty($propiedades_busqueda)): ?>
-    <section class="propiedades">
-        <h2>Resultados de Búsqueda</h2>
-        <div class="propiedades-grid">
-            <?php foreach ($propiedades_busqueda as $prop): ?>
-                <div class="propiedad-card">
-                    <img src="<?php echo $prop['imagen_destacada']; ?>" alt="<?php echo $prop['titulo']; ?>">
-                    <div>
-                        <h3><?php echo $prop['titulo']; ?></h3>
-                        <p><?php echo $prop['desc_breve']; ?></p>
-                        <p>Precio: $<?php echo number_format($prop['precio'], 2); ?></p>
-                        <a href="propiedad.php?id=<?php echo $prop['id']; ?>">Ver más</a>
-                    </div>
-                </div>
-            <?php endforeach; ?>
         </div>
     </section>
-    <?php endif; ?>
     <section class="propiedades">
         <h2>Propiedades Destacadas</h2>
         <div class="propiedades-grid">
+
             <?php foreach ($destacadas as $prop): ?>
                 <div class="propiedad-card">
                     <img src="<?php echo $prop['imagen_destacada']; ?>" alt="<?php echo $prop['titulo']; ?>">
@@ -81,16 +84,16 @@ if (isset($_POST['buscar'])) {
                         <h3><?php echo $prop['titulo']; ?></h3>
                         <p><?php echo $prop['desc_breve']; ?></p>
                         <p>Precio: $<?php echo number_format($prop['precio'], 2); ?></p>
-                        <a href="propiedad.php?id=<?php echo $prop['id']; ?>">Ver más</a>
                     </div>
                 </div>
             <?php endforeach; ?>
         </div>
-        <a href="ventas.php" class="ver-mas">Ver más</a>
+        
     </section>
     <section class="propiedades ventas-blanco">
         <h2>Propiedades en Venta</h2>
         <div class="propiedades-grid">
+            <!-- Ejemplos en Venta -->
             <?php foreach ($ventas as $prop): ?>
                 <div class="propiedad-card">
                     <img src="<?php echo $prop['imagen_destacada']; ?>" alt="<?php echo $prop['titulo']; ?>">
@@ -148,4 +151,5 @@ if (isset($_POST['buscar'])) {
         <p>Derechos reservados &copy; <?php echo date('Y'); ?> UTN Solutions Real State</p>
     </footer>
 </body>
+
 </html>

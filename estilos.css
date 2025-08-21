@@ -1,3 +1,187 @@
+/* Tabla de mis propiedades */
+.mis-prop-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    padding: 40px 0 30px 0;
+}
+.mis-prop-section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: #18183a;
+}
+.tabla-prop-wrap {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    padding: 32px 24px 24px 24px;
+    min-width: 320px;
+    max-width: 700px;
+    width: 100%;
+    overflow-x: auto;
+}
+.tabla-propiedades {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+    background: #fff;
+}
+.tabla-propiedades th, .tabla-propiedades td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+.tabla-propiedades th {
+    background: #f8f8fa;
+    color: #18183a;
+    font-weight: bold;
+}
+.tabla-propiedades tr:last-child td {
+    border-bottom: none;
+}
+.tabla-btn {
+    display: inline-block;
+    padding: 6px 18px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.98rem;
+    text-decoration: none;
+    margin-right: 6px;
+    transition: background 0.2s, color 0.2s;
+    border: none;
+    cursor: pointer;
+}
+.tabla-btn.editar {
+    background: #ffd600;
+    color: #18183a;
+}
+.tabla-btn.editar:hover {
+    background: #18183a;
+    color: #ffd600;
+}
+.tabla-btn.eliminar {
+    background: #d32f2f;
+    color: #fff;
+}
+.tabla-btn.eliminar:hover {
+    background: #b71c1c;
+    color: #fff;
+}
+/* Formulario de agregar propiedad */
+.form-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    padding: 40px 0 30px 0;
+}
+.form-section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: #18183a;
+}
+.form-propiedad {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    padding: 36px 32px 28px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 320px;
+    max-width: 420px;
+    width: 100%;
+}
+.form-propiedad label {
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: #18183a;
+}
+.form-propiedad input[type="text"],
+.form-propiedad input[type="number"],
+.form-propiedad input[type="file"],
+.form-propiedad textarea,
+.form-propiedad select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.form-propiedad textarea {
+    min-height: 60px;
+    resize: vertical;
+}
+.form-propiedad button {
+    margin-top: 10px;
+    padding: 12px 0;
+    background: #18183a;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1.08rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.form-propiedad button:hover {
+    background: #ffd600;
+    color: #18183a;
+}
+.form-propiedad .error {
+    color: #d32f2f;
+    font-size: 0.98rem;
+    margin: 0 0 8px 0;
+    padding: 0;
+}
+/* Estilos para el panel de usuario */
+.panel-opciones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 320px;
+    padding: 40px 0 30px 0;
+}
+.panel-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    align-items: center;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    padding: 36px 48px;
+    min-width: 260px;
+}
+.panel-btn {
+    display: block;
+    width: 220px;
+    padding: 14px 0;
+    background: #18183a;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.08rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+}
+.panel-btn:hover {
+    background: #ffd600;
+    color: #18183a;
+    box-shadow: 0 4px 16px rgba(24,24,58,0.10);
+}
 /* Íconos en la info de contacto del footer */
 .footer-info .footer-icon {
     width: 20px;
