@@ -63,7 +63,7 @@ if (isset($_POST['buscar'])) {
         </section>
     <?php endif; ?>
     <section class="banner">
-        <img src="<?php echo $config['imagen_banner'] ?? 'casaInicio.jpg'; ?>" alt="">
+        <img src="imagenes/<?php echo $config['imagen_banner'] ?? 'casaInicio.jpg'; ?>" alt="">
         <h1><?php echo $config['mensaje_banner'] ?? 'PERMITENOS AYUDARTE A CUMPLIR TUS SUEÑOS'; ?></h1>
     </section>
     <section id="quienes-somos" class="quienes-somos">

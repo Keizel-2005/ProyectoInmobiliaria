@@ -1,3 +1,164 @@
+/* Propiedad (detalle) page styles */
+body {
+    background: #f8f8fa;
+    margin: 0;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+.prop-container {
+    max-width: 900px;
+    margin: 40px auto 30px auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(24,24,58,0.10);
+    padding: 36px 32px 28px 32px;
+    display: flex;
+    flex-direction: row;
+    gap: 36px;
+}
+.prop-img {
+    flex: 1;
+    min-width: 320px;
+    max-width: 420px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+.prop-img img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(24,24,58,0.08);
+    object-fit: cover;
+}
+.prop-info {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.prop-info h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #18183a;
+    margin: 0 0 10px 0;
+}
+.prop-info .desc {
+    font-size: 1.08rem;
+    color: #22223b;
+    margin-bottom: 8px;
+}
+.prop-info .precio {
+    color: #ffd600;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+.prop-info .ubicacion {
+    color: #18183a;
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+}
+.prop-info .agente {
+    color: #22223b;
+    font-size: 1.01rem;
+    margin-bottom: 8px;
+}
+.prop-info .mapa {
+    margin: 12px 0 0 0;
+}
+.prop-actions {
+    margin-top: 18px;
+    display: flex;
+    gap: 16px;
+}
+.prop-btn {
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 7px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-decoration: none;
+    background: #18183a;
+    color: #fff;
+    border: none;
+    transition: background 0.2s, color 0.2s;
+    cursor: pointer;
+}
+.prop-btn:hover {
+    background: #ffd600;
+    color: #18183a;
+}
+@media (max-width: 900px) {
+    .prop-container {
+        flex-direction: column;
+        padding: 24px 8px 18px 8px;
+        gap: 18px;
+    }
+    .prop-img {
+        max-width: 100%;
+        min-width: 0;
+    }
+}
+/* Login Form Styles */
+.login-form {
+    margin: auto;
+    min-width: 260px;
+    max-width: 320px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(24,24,58,0.10);
+    padding: 32px 22px 22px 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.login-form h2 {
+    text-align: center;
+    margin-bottom: 18px;
+    color: #22223b;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+.login-form label {
+    font-weight: 500;
+    color: #22223b;
+    margin-bottom: 2px;
+    font-size: 0.98rem;
+    align-self: flex-start;
+}
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+    background: #f8f8fa;
+    margin-bottom: 8px;
+}
+.login-form button {
+    margin-top: 10px;
+    padding: 10px 0;
+    background: #18183a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    width: 100%;
+}
+.login-form button:hover {
+    background: #ffd600;
+    color: #18183a;
+}
+.login-form .error {
+    color: #d32f2f;
+    font-size: 0.97rem;
+    margin: 0 0 8px 0;
+    text-align: center;
+}
 /* Tabla de mis propiedades */
 .mis-prop-section {
     display: flex;
