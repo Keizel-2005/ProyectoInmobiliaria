@@ -16,13 +16,13 @@ if (isset($_POST['buscar'])) {
 <head>
     <meta charset="UTF-8">
     <title>UTN Solutions Real State</title>
-    <link rel="stylesheet" href="estilos.css">
-    <link rel="icon" href="<?php echo $config['icono_principal'] ?? 'icono.png'; ?>">
+    <link rel="stylesheet" href="estilos.css"> 
+    <link rel="icon" href="imagenes/<?php echo $config['icono_principal'] ?? 'icono.png'; ?>">
 </head>
 <body>
     <header>
-       <div class="logo">
-            <img src="imagenes/logo.png" alt="" style="width: 50px; height: 50px; vertical-align: middle; margin-right: 10px;">
+        <div class="logo">
+            <img src="imagenes/<?php echo $config['icono_principal'] ?? 'logo.png'; ?>" alt="Logo UTN Solutions" style="width: 50px; height: 50px; vertical-align: middle; margin-right: 10px;">
             UTN Solutions Real State
         </div>
         <div class="header-menu-wrap">
@@ -63,17 +63,16 @@ if (isset($_POST['buscar'])) {
         </section>
     <?php endif; ?>
     <section class="banner">
-        <img src="imagenes/<?php echo $config['imagen_banner'] ?? 'casaInicio.jpg'; ?>" alt="">
+        <img src="imagenes/<?php echo $config['imagen_banner'] ?? 'casaInicio.jpg'; ?>" alt="Banner">
         <h1><?php echo $config['mensaje_banner'] ?? 'PERMITENOS AYUDARTE A CUMPLIR TUS SUEÑOS'; ?></h1>
     </section>
     <section id="quienes-somos" class="quienes-somos">
         <div>
             <h2>Quienes Somos</h2>
-            <p><?php echo $config['info_quienes_somos'] ?? 'Somos un equipo apasionado por el sector inmobiliario, comprometido en ayudarte a encontrar la 
-            propiedad ideal para ti y tu familia. Nos destacamos por nuestro profesionalismo, atención personalizada y conocimiento del mercado, brindando soluciones confiables y acompañamiento en cada paso del proceso. ¡Permítenos ayudarte a cumplir tus sueños!'; ?></p>
+            <p><?php echo $config['info_quienes_somos'] ?? 'Somos un equipo apasionado por el sector inmobiliario, comprometido en ayudarte a encontrar la propiedad ideal para ti y tu familia. Nos destacamos por nuestro profesionalismo, atención personalizada y conocimiento del mercado, brindando soluciones confiables y acompañamiento en cada paso del proceso. ¡Permítenos ayudarte a cumplir tus sueños!'; ?></p>
         </div>
         <div class="quienes-img">
-            <img src="imagenes/quienesSomos.jpg" alt="Equipo">
+            <img src="imagenes/<?php echo $config['imagen_quienes_somos'] ?? 'quienesSomos.jpg'; ?>" alt="Equipo">
         </div>
     </section>
     <section class="propiedades">
@@ -141,12 +140,12 @@ if (isset($_POST['buscar'])) {
         </form>
         <div class="footer-redes-wrap">
             <div class="redes">
-                <a href="<?php echo $config['enlaces_facebook'] ?? '#'; ?>"><img src="imagenes/facebook.png" alt="Facebook"></a>
-                <a href="<?php echo $config['enlaces_twitter'] ?? '#'; ?>"><img src="imagenes/youtube.png" alt="Youtube"></a>
-                <a href="<?php echo $config['enlaces_instagram'] ?? '#'; ?>"><img src="imagenes/instagram.png" alt="Instagram"></a>
+                <a href="<?php echo $config['enlaces_facebook'] ?? 'https://www.facebook.com'; ?>" target="_blank"><img src="imagenes/facebook.png" alt="Facebook"></a>
+                <a href="<?php echo $config['enlaces_twitter'] ?? 'https://www.twitter.com'; ?>" target="_blank"><img src="imagenes/youtube.png" alt="YouTube"></a>
+                <a href="<?php echo $config['enlaces_instagram'] ?? 'https://www.instagram.com'; ?>" target="_blank"><img src="imagenes/instagram.png" alt="Instagram"></a>
             </div>
         </div>
-    </footer>
+        </footer>
     <footer class="footer-copy">
         <p>Derechos reservados &copy; <?php echo date('Y'); ?> UTN Solutions Real State</p>
     </footer>

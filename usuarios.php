@@ -61,7 +61,10 @@ $usuarios = $conexion->query("SELECT * FROM usuarios")->fetch_all(MYSQLI_ASSOC);
 </head>
 <body>
     <header>
-        <div class="logo">UTN Solutions Real State</div>
+     <div class="logo">
+            <img src="imagenes/<?php echo $config['icono_principal'] ?? 'logo.png'; ?>" alt="Logo UTN Solutions" style="width: 50px; height: 50px; vertical-align: middle; margin-right: 10px;">
+            UTN Solutions Real State
+        </div>
         <div class="header-menu-wrap">
             <a href="panel.php" class="login-btn">Volver</a>
         </div>
