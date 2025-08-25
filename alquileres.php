@@ -36,7 +36,7 @@ $alquileres = obtener_propiedades('alquiler');
             </nav>
         </div>
     </header>
-    <!-- Banner removido para simplicidad -->
+  
     <main>
         <section class="propiedades">
             <h2>Propiedades en Alquiler</h2>

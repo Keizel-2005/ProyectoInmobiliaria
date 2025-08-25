@@ -4,7 +4,6 @@ function encriptar_contrasena($contrasena) {
     return md5($contrasena);
 }
 
-// Valida que el usuario haya iniciado sesión
 function validar_sesion() {
     session_start();
     if (!isset($_SESSION['usuario_id'])) {
@@ -13,12 +12,10 @@ function validar_sesion() {
     }
 }
 
-// Verifica si el usuario es administrador
 function es_admin() {
     return isset($_SESSION['privilegio']) && $_SESSION['privilegio'] === 'administrador';
 }
 
-// Obtiene la configuración general del sitio
 function obtener_config() {
     global $conexion;
     $query = "SELECT * FROM configuracion LIMIT 1";
@@ -26,7 +23,6 @@ function obtener_config() {
     return $result->fetch_assoc();
 }
 
-// Obtiene propiedades según filtros
 function obtener_propiedades($tipo = null, $destacada = null, $limit = null) {
     global $conexion;
     $query = "SELECT p.*, u.nombre AS agente_nombre FROM propiedades p LEFT JOIN usuarios u ON p.agente_id = u.id";
@@ -40,7 +36,6 @@ function obtener_propiedades($tipo = null, $destacada = null, $limit = null) {
     return $result->fetch_all(MYSQLI_ASSOC);
 }
 
-// Busca propiedades por texto
 function buscar_propiedades($busqueda) {
     global $conexion;
     $busqueda = $conexion->real_escape_string($busqueda);
@@ -49,10 +44,9 @@ function buscar_propiedades($busqueda) {
     return $result->fetch_all(MYSQLI_ASSOC);
 }
 
-// Sube una imagen validando tipo y tamaño
 function subir_imagen($archivo, $destino = 'imagenes/') {
     $permitidos = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
-    $max_tamano = 2 * 1024 * 1024; // 2MB
+    $max_tamano = 2 * 1024 * 1024; 
     if (!in_array($archivo['type'], $permitidos)) {
         return false;
     }

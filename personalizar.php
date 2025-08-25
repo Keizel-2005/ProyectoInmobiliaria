@@ -17,7 +17,6 @@ if (isset($_POST['actualizar'])) {
     $enlaces_twitter = $conexion->real_escape_string($_POST['enlaces_twitter']);
     $enlaces_instagram = $conexion->real_escape_string($_POST['enlaces_instagram']);
 
-    // Manejar uploads
     $icono_principal = $config['icono_principal'] ?? '';
     if (isset($_FILES['icono_principal']) && $_FILES['icono_principal']['error'] == 0) {
         $nuevo_icono = subir_imagen($_FILES['icono_principal']);
@@ -43,7 +42,7 @@ if (isset($_POST['actualizar'])) {
         $query = "REPLACE INTO configuracion (id, colores, icono_principal, icono_blanco, imagen_banner, mensaje_banner, info_quienes_somos, imagen_quienes_somos, enlaces_facebook, enlaces_twitter, enlaces_instagram, direccion, telefono, email)
                   VALUES (1, '$colores', '$icono_principal', '$icono_blanco', '$imagen_banner', '$mensaje_banner', '$info_quienes_somos', '$imagen_quienes_somos', '$enlaces_facebook', '$enlaces_twitter', '$enlaces_instagram', '$direccion', '$telefono', '$email')";
         if ($conexion->query($query)) {
-            header('Location: personalizar.php?success=1'); // Recarga con mensaje de éxito
+            header('Location: personalizar.php?success=1'); 
         } else {
             $errores[] = 'Error al actualizar: ' . $conexion->error;
         }
@@ -72,27 +71,32 @@ if (isset($_POST['actualizar'])) {
         <?php if (isset($_GET['success']) && $_GET['success'] == 1): ?>
             <p class="success"><i class="fa-solid fa-check"></i> Cambios guardados con éxito.</p>
         <?php endif; ?>
+
         <form class="form-propiedad" method="post" enctype="multipart/form-data" autocomplete="off">
             <label for="colores">Colores:</label>
             <select id="colores" name="colores">
                 <option value="azul,amarillo,gris" <?php echo ($config['colores'] ?? 'azul,amarillo,gris') === 'azul,amarillo,gris' ? 'selected' : ''; ?>>Azul, Amarillo, Gris</option>
                 <option value="blanco,gris" <?php echo ($config['colores'] ?? 'azul,amarillo,gris') === 'blanco,gris' ? 'selected' : ''; ?>>Blanco, Gris</option>
             </select>
+
             <label for="icono_principal"><i class="fa-solid fa-image"></i> Ícono Principal:</label>
             <input type="file" id="icono_principal" name="icono_principal">
             <?php if (!empty($config['icono_principal'])): ?>
                 <p>Imagen actual: <img src="imagenes/<?php echo htmlspecialchars($config['icono_principal']); ?>" alt="Ícono Principal" style="max-width: 100px;"></p>
             <?php endif; ?>
+
             <label for="icono_blanco"><i class="fa-solid fa-image"></i> Ícono Blanco:</label>
             <input type="file" id="icono_blanco" name="icono_blanco">
             <?php if (!empty($config['icono_blanco'])): ?>
                 <p>Imagen actual: <img src="imagenes/<?php echo htmlspecialchars($config['icono_blanco']); ?>" alt="Ícono Blanco" style="max-width: 100px;"></p>
             <?php endif; ?>
+
             <label for="imagen_banner"><i class="fa-solid fa-image"></i> Imagen Banner:</label>
             <input type="file" id="imagen_banner" name="imagen_banner">
             <?php if (!empty($config['imagen_banner'])): ?>
                 <p>Imagen actual: <img src="imagenes/<?php echo htmlspecialchars($config['imagen_banner']); ?>" alt="Banner" style="max-width: 200px;"></p>
             <?php endif; ?>
+
             <label for="mensaje_banner">Mensaje Banner:</label>
             <input type="text" id="mensaje_banner" name="mensaje_banner" value="<?php echo htmlspecialchars($config['mensaje_banner'] ?? ''); ?>" required>
             <label for="info_quienes_somos">Info Quienes Somos:</label>
@@ -102,6 +106,7 @@ if (isset($_POST['actualizar'])) {
             <?php if (!empty($config['imagen_quienes_somos'])): ?>
                 <p>Imagen actual: <img src="imagenes/<?php echo htmlspecialchars($config['imagen_quienes_somos']); ?>" alt="Quienes Somos" style="max-width: 200px;"></p>
             <?php endif; ?>
+            
             <label for="enlaces_facebook"><i class="fa-brands fa-facebook"></i> Facebook:</label>
             <input type="url" id="enlaces_facebook" name="enlaces_facebook" value="<?php echo htmlspecialchars($config['enlaces_facebook'] ?? ''); ?>">
             <label for="enlaces_twitter"><i class="fa-brands fa-x-twitter"></i> Twitter:</label>

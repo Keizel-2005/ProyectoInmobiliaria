@@ -56,13 +56,13 @@ $usuario_id = $_SESSION['usuario_id'];
         </div>
     </section>
     <?php
-    // Mostrar propiedades según privilegio
+   
     if (es_admin()) {
         $destacadas = obtener_propiedades(null, 1, 3);
         $ventas = obtener_propiedades('venta', null, 3);
         $alquileres = obtener_propiedades('alquiler', null, 3);
     } else {
-        // Solo propiedades del agente
+     
         global $conexion;
         $usuario_id = $_SESSION['usuario_id'];
         $destacadas = $conexion->query("SELECT p.*, u.nombre AS agente_nombre FROM propiedades p LEFT JOIN usuarios u ON p.agente_id = u.id WHERE p.agente_id = $usuario_id AND destacada = 1 ORDER BY p.id DESC LIMIT 3")->fetch_all(MYSQLI_ASSOC);

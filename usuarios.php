@@ -8,7 +8,7 @@ $id = $_GET['id'] ?? 0;
 $errores = [];
 
 if ($accion == 'eliminar' && $id) {
-    $query = "DELETE FROM usuarios WHERE id = $id AND privilegio != 'administrador'"; // No eliminar admin principal
+    $query = "DELETE FROM usuarios WHERE id = $id AND privilegio != 'administrador'";
     $conexion->query($query);
     header('Location: usuarios.php');
 }
