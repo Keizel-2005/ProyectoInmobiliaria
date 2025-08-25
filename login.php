@@ -12,7 +12,7 @@ if (isset($_POST['login'])) {
         $_SESSION['usuario_id'] = $row['id'];
         $_SESSION['privilegio'] = $row['privilegio'];
         header('Location: panel.php');
-        exit();
+    exit();
     } else {
         $error = 'Credenciales incorrectas';
     }
@@ -34,7 +34,7 @@ if (isset($_POST['login'])) {
             background: none;
         }
         .login-container {
-            background: #fff;
+            background: var(--color-blanco, #fff);
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(24,24,58,0.10);
             padding: 32px 22px 22px 22px;
@@ -46,7 +46,7 @@ if (isset($_POST['login'])) {
             align-items: center;
         }
         .login-container h2 {
-            color: #22223b;
+            color: var(--color-texto, #22223b);
             font-size: 1.15rem;
             font-weight: 700;
             margin-bottom: 18px;
@@ -59,7 +59,7 @@ if (isset($_POST['login'])) {
         }
         .login-form label {
             font-weight: 500;
-            color: #22223b;
+            color: var(--color-texto, #22223b);
             margin-bottom: 2px;
             font-size: 0.98rem;
         }
@@ -70,13 +70,13 @@ if (isset($_POST['login'])) {
             border-radius: 5px;
             font-size: 1rem;
             width: 100%;
-            background: #f8f8fa;
+            background: var(--color-fondo, #f8f8fa);
         }
         .login-form button {
             margin-top: 10px;
             padding: 10px 0;
-            background: #18183a;
-            color: #fff;
+            background: var(--color-primario, #18183a);
+            color: var(--color-blanco, #fff);
             border: none;
             border-radius: 5px;
             font-weight: bold;
@@ -85,11 +85,11 @@ if (isset($_POST['login'])) {
             transition: background 0.2s, color 0.2s;
         }
         .login-form button:hover {
-            background: #ffd600;
-            color: #18183a;
+            background: var(--color-secundario, #ffd600);
+            color: var(--color-primario, #18183a);
         }
         .login-form .error {
-            color: #d32f2f;
+            color: var(--color-eliminar, #d32f2f);
             font-size: 0.97rem;
             margin: 0 0 8px 0;
             text-align: center;
@@ -98,7 +98,7 @@ if (isset($_POST['login'])) {
 </head>
 <body>
     <form class="login-form" method="post" autocomplete="off">
-        <h2 style="text-align:center; margin-bottom:18px; color:#22223b; font-size:1.15rem; font-weight:700;">Iniciar sesión</h2>
+    <h2 style="text-align:center; margin-bottom:18px; color:var(--color-texto, #22223b); font-size:1.15rem; font-weight:700;">Iniciar sesión</h2>
         <label for="usuario">Usuario</label>
         <input type="text" id="usuario" name="usuario" required autofocus>
         <label for="contrasena">Contraseña</label>

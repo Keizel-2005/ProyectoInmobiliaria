@@ -11,6 +11,20 @@ $usuario_id = $_SESSION['usuario_id'];
     <title>Panel de Control</title>
     <link rel="stylesheet" href="estilos.css">
     <link rel="icon" href="<?php echo $config['icono_principal'] ?? 'icono.png'; ?>">
+    <?php
+    
+    if (!empty($config['colores'])) {
+        $colores_actuales = explode(',', $config['colores']);
+        $color_primario = $colores_actuales[0] ?? '#18183a';
+        $color_secundario = $colores_actuales[1] ?? '#ffd600';
+        $color_fondo = $colores_actuales[2] ?? '#f8f8fa';
+        echo '<style>:root {';
+        echo '--color-primario: ' . $color_primario . ';';
+        echo '--color-secundario: ' . $color_secundario . ';';
+        echo '--color-fondo: ' . $color_fondo . ';';
+        echo '}</style>';
+    }
+    ?>
 </head>
 <body>
     <header>
@@ -34,7 +48,7 @@ $usuario_id = $_SESSION['usuario_id'];
                         <li><a href="mis_propiedades.php">Mis Propiedades</a></li>
                     <?php endif; ?>
                     <li><a href="actualizar_datos.php">Actualizar Datos</a></li>
-                    <li><a href="cerrar_sesion.php" class="logout-btn" style="color:#d32f2f;font-weight:bold;">Cerrar sesión</a></li>
+                    <li><a href="cerrar_sesion.php" class="logout-btn" style="color:var(--color-eliminar, #d32f2f);font-weight:bold;">Cerrar sesión</a></li>
                 </ul>
             </nav>
         </div>

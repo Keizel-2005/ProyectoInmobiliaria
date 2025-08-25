@@ -14,6 +14,19 @@ $es_admin = es_admin();
 <head>
     <title><?php echo $prop['titulo']; ?></title>
     <link rel="stylesheet" href="estilos.css">
+    <?php
+    if (!empty($config['colores'])) {
+        $colores_actuales = explode(',', $config['colores']);
+        $color_primario = $colores_actuales[0] ?? '#18183a';
+        $color_secundario = $colores_actuales[1] ?? '#ffd600';
+        $color_fondo = $colores_actuales[2] ?? '#f8f8fa';
+        echo '<style>:root {';
+        echo '--color-primario: ' . $color_primario . ';';
+        echo '--color-secundario: ' . $color_secundario . ';';
+        echo '--color-fondo: ' . $color_fondo . ';';
+        echo '}</style>';
+    }
+    ?>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 </head>
@@ -41,7 +54,7 @@ $es_admin = es_admin();
             <?php if ($es_propietario || $es_admin): ?>
             <div class="prop-actions">
                 <a href="editar_propiedad.php?id=<?php echo $id; ?>" class="prop-btn"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
-                <a href="mis_propiedades.php?eliminar=<?php echo $id; ?>" class="prop-btn" style="background:#d32f2f; color:#fff;" onclick="return confirm('¿Seguro?');"><i class="fa-solid fa-trash"></i> Eliminar</a>
+                <a href="mis_propiedades.php?eliminar=<?php echo $id; ?>" class="prop-btn" style="background:var(--color-eliminar, #d32f2f); color:var(--color-blanco, #fff);" onclick="return confirm('¿Seguro?');"><i class="fa-solid fa-trash"></i> Eliminar</a>
             </div>
             <?php endif; ?>
         </div>

@@ -1,5 +1,6 @@
 <?php
 include 'funciones.php';
+$config = obtener_config() ?? [];
 validar_sesion();
 if (!es_admin()) header('Location: index.php');
 
@@ -57,6 +58,19 @@ $usuarios = $conexion->query("SELECT * FROM usuarios")->fetch_all(MYSQLI_ASSOC);
 <head>
     <title>Gestionar Usuarios</title>
     <link rel="stylesheet" href="estilos.css">
+    <?php
+    if (!empty($config['colores'])) {
+        $colores_actuales = explode(',', $config['colores']);
+    $color_primario = $colores_actuales[0] ?? '#18183a';
+    $color_secundario = $colores_actuales[1] ?? '#ffd600';
+    $color_fondo = $colores_actuales[2] ?? '#f8f8fa';
+    echo '<style>:root {';
+    echo '--color-primario: ' . $color_primario . ';';
+    echo '--color-secundario: ' . $color_secundario . ';';
+    echo '--color-fondo: ' . $color_fondo . ';';
+    echo '}</style>';
+    }
+    ?>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>

@@ -7,7 +7,14 @@ $config = obtener_config() ?? [];
 $errores = [];
 
 if (isset($_POST['actualizar'])) {
-    $colores = $conexion->real_escape_string($_POST['colores']);
+    $color_primario = $conexion->real_escape_string($_POST['color_primario']);
+    $color_secundario = $conexion->real_escape_string($_POST['color_secundario']);
+    $color_fondo = $conexion->real_escape_string($_POST['color_fondo']);
+    
+    if (strpos($color_primario, '#') !== 0) $color_primario = '#18183a';
+    if (strpos($color_secundario, '#') !== 0) $color_secundario = '#ffd600';
+    if (strpos($color_fondo, '#') !== 0) $color_fondo = '#f8f8fa';
+    $colores = $color_primario . ',' . $color_secundario . ',' . $color_fondo;
     $mensaje_banner = $conexion->real_escape_string($_POST['mensaje_banner']);
     $info_quienes_somos = $conexion->real_escape_string($_POST['info_quienes_somos']);
     $direccion = $conexion->real_escape_string($_POST['direccion']);
@@ -55,6 +62,19 @@ if (isset($_POST['actualizar'])) {
     <title>Personalizar Página</title>
     <link rel="stylesheet" href="estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <?php
+    
+    $colores = $config['colores'] ?? 'azul,amarillo,gris';
+    $css_vars = '';
+    if ($colores === 'azul,amarillo,gris') {
+        $css_vars = ':root { --color-primario: #18183a; --color-secundario: #ffd600; --color-fondo: #f8f8fa; --color-texto: #22223b; --color-blanco: #fff; --color-gris: #e0e0e0; }';
+    } elseif ($colores === 'blanco,gris') {
+        $css_vars = ':root { --color-primario: #22223b; --color-secundario: #e0e0e0; --color-fondo: #fff; --color-texto: #18183a; --color-blanco: #fff; --color-gris: #e0e0e0; }';
+    }
+    if ($css_vars) {
+        echo '<style>' . $css_vars . '</style>';
+    }
+    ?>
 </head>
 <body>
     <header>
@@ -73,30 +93,51 @@ if (isset($_POST['actualizar'])) {
         <?php endif; ?>
 
         <form class="form-propiedad" method="post" enctype="multipart/form-data" autocomplete="off">
-            <label for="colores">Colores:</label>
-            <select id="colores" name="colores">
-                <option value="azul,amarillo,gris" <?php echo ($config['colores'] ?? 'azul,amarillo,gris') === 'azul,amarillo,gris' ? 'selected' : ''; ?>>Azul, Amarillo, Gris</option>
-                <option value="blanco,gris" <?php echo ($config['colores'] ?? 'azul,amarillo,gris') === 'blanco,gris' ? 'selected' : ''; ?>>Blanco, Gris</option>
-            </select>
-
-            <label for="icono_principal"><i class="fa-solid fa-image"></i> Ícono Principal:</label>
-            <input type="file" id="icono_principal" name="icono_principal">
-            <?php if (!empty($config['icono_principal'])): ?>
-                <p>Imagen actual: <img src="imagenes/<?php echo htmlspecialchars($config['icono_principal']); ?>" alt="Ícono Principal" style="max-width: 100px;"></p>
-            <?php endif; ?>
-
-            <label for="icono_blanco"><i class="fa-solid fa-image"></i> Ícono Blanco:</label>
-            <input type="file" id="icono_blanco" name="icono_blanco">
-            <?php if (!empty($config['icono_blanco'])): ?>
-                <p>Imagen actual: <img src="imagenes/<?php echo htmlspecialchars($config['icono_blanco']); ?>" alt="Ícono Blanco" style="max-width: 100px;"></p>
-            <?php endif; ?>
+            <label>Colores personalizados:</label>
+            <?php
+                $colores_actuales = explode(',', $config['colores'] ?? '#18183a,#ffd600,#f8f8fa');
+                $color_primario = $colores_actuales[0] ?? '#18183a';
+                $color_secundario = $colores_actuales[1] ?? '#ffd600';
+                $color_fondo = $colores_actuales[2] ?? '#f8f8fa';
+            ?>
+            <div style="display:flex;gap:18px;align-items:center;margin-bottom:12px;">
+                <div>
+                    <label for="color_primario" style="font-weight:500;">Primario:</label>
+                    <input type="color" id="color_primario" name="color_primario" value="<?php echo htmlspecialchars($color_primario); ?>">
+                </div>
+                <div>
+                    <label for="color_secundario" style="font-weight:500;">Secundario:</label>
+                    <input type="color" id="color_secundario" name="color_secundario" value="<?php echo htmlspecialchars($color_secundario); ?>">
+                </div>
+                <div>
+                    <label for="color_fondo" style="font-weight:500;">Fondo:</label>
+                    <input type="color" id="color_fondo" name="color_fondo" value="<?php echo htmlspecialchars($color_fondo); ?>">
+                </div>
+            </div>
+<head>
+    <title>Personalizar Página</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <?php
+    // Definir variables CSS según la selección de colores personalizados
+    $colores_actuales = explode(',', $config['colores'] ?? '#18183a,#ffd600,#f8f8fa');
+    $color_primario = $colores_actuales[0] ?? '#18183a';
+    $color_secundario = $colores_actuales[1] ?? '#ffd600';
+    $color_fondo = $colores_actuales[2] ?? '#f8f8fa';
+    echo '<style>:root {';
+    echo '--color-primario: ' . htmlspecialchars($color_primario) . ';';
+    echo '--color-secundario: ' . htmlspecialchars($color_secundario) . ';';
+    echo '--color-fondo: ' . htmlspecialchars($color_fondo) . ';';
+    echo '--color-texto: #22223b; --color-blanco: #fff; --color-gris: #e0e0e0;';
+    echo '}</style>';
+    ?>
+</head>
 
             <label for="imagen_banner"><i class="fa-solid fa-image"></i> Imagen Banner:</label>
             <input type="file" id="imagen_banner" name="imagen_banner">
             <?php if (!empty($config['imagen_banner'])): ?>
                 <p>Imagen actual: <img src="imagenes/<?php echo htmlspecialchars($config['imagen_banner']); ?>" alt="Banner" style="max-width: 200px;"></p>
             <?php endif; ?>
-
             <label for="mensaje_banner">Mensaje Banner:</label>
             <input type="text" id="mensaje_banner" name="mensaje_banner" value="<?php echo htmlspecialchars($config['mensaje_banner'] ?? ''); ?>" required>
             <label for="info_quienes_somos">Info Quienes Somos:</label>

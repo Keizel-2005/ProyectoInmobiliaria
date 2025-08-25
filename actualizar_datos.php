@@ -37,6 +37,19 @@ if (isset($_POST['actualizar'])) {
     <meta charset="UTF-8">
     <title>Actualizar Datos Personales</title>
     <link rel="stylesheet" href="estilos.css">
+    <?php
+    if (!empty($config['colores'])) {
+        $colores_actuales = explode(',', $config['colores']);
+    $color_primario = $colores_actuales[0] ?? '#18183a';
+    $color_secundario = $colores_actuales[1] ?? '#ffd600';
+    $color_fondo = $colores_actuales[2] ?? '#f8f8fa';
+    echo '<style>:root {';
+    echo '--color-primario: ' . $color_primario . ';';
+    echo '--color-secundario: ' . $color_secundario . ';';
+    echo '--color-fondo: ' . $color_fondo . ';';
+    echo '}</style>';
+    }
+    ?>
     <link rel="icon" href="<?php echo $config['icono_principal'] ?? 'icono.png'; ?>">
 </head>
 <body>

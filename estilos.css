@@ -1,3 +1,62 @@
+footer.footer-copy, .footer-copy {
+    background: var(--color-primario) !important;
+    color: var(--color-blanco) !important;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    width: 100%;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    min-height: 40px;
+}
+/* Variables de color personalizables */
+:root {
+    --color-primario: #18183a;
+    --color-secundario: #ffd600;
+    --color-fondo: #f8f8fa;
+    --color-texto: #22223b;
+    --color-blanco: #fff;
+    --color-gris: #e0e0e0;
+    --color-eliminar: #d32f2f;
+}
+
+body {
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: 'Montserrat', Arial, sans-serif;
+    margin: 0;
+}
+
+/* Utiliza variables en los estilos principales */
+.prop-container, .tabla-prop-wrap, .login-form {
+    background: var(--color-blanco);
+}
+.prop-info h1, .mis-prop-section h2, .login-form h2 {
+    color: var(--color-primario);
+}
+.prop-btn, .login-form button, .tabla-btn.editar {
+    background: var(--color-primario);
+    color: var(--color-blanco);
+}
+.prop-btn:hover, .login-form button:hover, .tabla-btn.editar:hover {
+    background: var(--color-secundario);
+    color: var(--color-primario);
+}
+.prop-info .precio {
+    color: var(--color-secundario);
+}
+.tabla-propiedades th {
+    background: var(--color-fondo);
+    color: var(--color-primario);
+}
+footer.footer-copy, .footer-copy {
+    background: var(--color-primario) !important;
+    color: var(--color-blanco) !important;
+}
 /* Propiedad (detalle) page styles */
 body {
     background: #f8f8fa;
@@ -352,21 +411,7 @@ body {
     margin-bottom: 3px;
     object-fit: contain;
 }
-footer.footer-copy {
-    background: #18183a;
-    color: #fff;
-    text-align: center;
-    height: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    width: 100%;
-    margin: 0;
-    border: none;
-    box-shadow: none;
-    border-radius: 0;
-}
+
 /* Header menú con login a la derecha y opciones a la izquierda */
 .header-menu-wrap {
     display: flex;
@@ -544,7 +589,7 @@ body {
 
 
 header {
-    background: #0a0a23;
+    background: var(--color-primario);
     color: #fff;
     padding: 0;
     min-height: 90px;
@@ -761,7 +806,7 @@ nav ul li a:hover {
 
 
 footer {
-    background: #ffd600;
+    background: var(--color-secundario);
     padding: 32px 0 0 0;
     display: flex;
     flex-wrap: wrap;
@@ -936,13 +981,7 @@ footer button:hover {
     background: #ffd600;
     color: #18183a;
 }
-footer .footer-copy {
-    width: 100%;
-    text-align: center;
-    margin-top: 18px;
-    font-size: 0.98rem;
-    font-weight: 500;
-}
+
 
 .success {
     color: green;

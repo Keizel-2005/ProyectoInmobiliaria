@@ -9,6 +9,19 @@ $ventas = obtener_propiedades('venta');
     <meta charset="UTF-8">
     <title>Propiedades en Venta</title>
     <link rel="stylesheet" href="estilos.css">
+    <?php
+    if (!empty($config['colores'])) {
+        $colores_actuales = explode(',', $config['colores']);
+    $color_primario = $colores_actuales[0] ?? '#18183a';
+    $color_secundario = $colores_actuales[1] ?? '#ffd600';
+    $color_fondo = $colores_actuales[2] ?? '#f8f8fa';
+    echo '<style>:root {';
+    echo '--color-primario: ' . $color_primario . ';';
+    echo '--color-secundario: ' . $color_secundario . ';';
+    echo '--color-fondo: ' . $color_fondo . ';';
+    echo '}</style>';
+    }
+    ?>
     <link rel="icon" href="<?php echo $config['icono_principal'] ?? 'icono.png'; ?>">
 </head>
 <body>
@@ -41,7 +54,7 @@ $ventas = obtener_propiedades('venta');
             <h2>Propiedades en Venta</h2>
             <div class="propiedades-grid">
                 <?php if (empty($ventas)): ?>
-                    <p style="width:100%;text-align:center;color:#888;font-size:1.1rem;">No hay propiedades en venta disponibles en este momento.</p>
+                    <p style="width:100%;text-align:center;color:var(--color-gris, #888);font-size:1.1rem;">No hay propiedades en venta disponibles en este momento.</p>
                 <?php else: ?>
                     <?php foreach ($ventas as $prop): ?>
                         <div class="propiedad-card">
