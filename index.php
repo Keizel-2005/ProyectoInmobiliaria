@@ -81,7 +81,7 @@ if (isset($_POST['buscar'])) {
         <h1><?php echo $config['mensaje_banner'] ?? 'PERMITENOS AYUDARTE A CUMPLIR TUS SUEÑOS'; ?></h1>
     </section>
     <section id="quienes-somos" class="quienes-somos">
-        <div>
+        <div class="quienes-desc">
             <h2>Quienes Somos</h2>
             <p><?php echo $config['info_quienes_somos'] ?? 'Somos un equipo apasionado por el sector inmobiliario, comprometido en ayudarte a encontrar la propiedad ideal para ti y tu familia. Nos destacamos por nuestro profesionalismo, atención personalizada y conocimiento del mercado, brindando soluciones confiables y acompañamiento en cada paso del proceso. ¡Permítenos ayudarte a cumplir tus sueños!'; ?></p>
         </div>

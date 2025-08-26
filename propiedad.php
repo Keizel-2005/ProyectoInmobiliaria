@@ -37,12 +37,19 @@ $es_admin = es_admin();
             UTN Solutions Real State
         </div>
         <div class="header-menu-wrap">
-            <a href="index.php" class="login-btn">Volver</a>
+            <a href="panel.php" class="login-btn">Volver</a>
         </div>
     </header>
     <div class="prop-container">
         <div class="prop-img">
-            <img src="<?php echo $prop['imagen_destacada']; ?>" alt="<?php echo $prop['titulo']; ?>">
+            <?php
+            $img_path = 'imagenes/' . $prop['imagen_destacada'];
+            if (file_exists($img_path) && !empty($prop['imagen_destacada'])) {
+                echo '<img src="' . $img_path . '" alt="' . htmlspecialchars($prop['titulo']) . '">';
+            } else {
+                echo '<div style="width:100%;height:220px;display:flex;align-items:center;justify-content:center;background:#eee;color:#888;font-size:1.1rem;border-radius:8px;">Imagen no disponible</div>';
+            }
+            ?>
         </div>
         <div class="prop-info">
             <h1><?php echo $prop['titulo']; ?></h1>

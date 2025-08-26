@@ -57,7 +57,7 @@ function subir_imagen($archivo, $destino = 'imagenes/') {
     $nombre = uniqid() . '_' . basename($archivo['name']);
     $ruta = $destino . $nombre;
     if (move_uploaded_file($archivo['tmp_name'], $ruta)) {
-        return $ruta;
+        return $nombre;
     }
     return false;
 }

@@ -25,28 +25,18 @@ $ventas = obtener_propiedades('venta');
     <link rel="icon" href="<?php echo $config['icono_principal'] ?? 'icono.png'; ?>">
 </head>
 <body>
+    <?php session_start(); ?>
     <header>
-         <div class="logo">
-            <img src="imagenes/logo.png" alt="" style="width: 50px; height: 50px; vertical-align: middle; margin-right: 10px;">
+       <div class="logo">
+            <img src="imagenes/<?php echo $config['icono_principal'] ?? 'logo.png'; ?>" alt="Logo UTN Solutions" style="width: 50px; height: 50px; vertical-align: middle; margin-right: 10px;">
             UTN Solutions Real State
         </div>
         <div class="header-menu-wrap">
-            <a href="login.php" class="login-btn">
-                <img src="imagenes/login.png" alt="Login" style="width: 32px; height: 32px; vertical-align: middle;">
-            </a>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.php">Inicio</a></li>
-                    <li><a href="#quienes-somos">Quienes Somos</a></li>
-                    <li><a href="alquileres.php">Alquileres</a></li>
-                    <li><a href="ventas.php">Ventas</a></li>
-                    <li><a href="#contacto">Contactenos</a></li>
-                </ul>
-                <form class="busqueda-form" method="post" action="index.php">
-                    <input type="text" name="busqueda" placeholder="Buscar propiedades..." required>
-                    <button type="submit" name="buscar">Buscar</button>
-                </form>
-            </nav>
+            <?php if (isset($_SESSION['usuario_id'])): ?>
+                <a href="panel.php" class="login-btn">Volver</a>
+            <?php else: ?>
+                <a href="index.php" class="login-btn">Inicio</a>
+            <?php endif; ?>
         </div>
     </header>
     <main>

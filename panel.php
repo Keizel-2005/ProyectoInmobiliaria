@@ -3,6 +3,12 @@ include 'funciones.php';
 validar_sesion();
 $config = obtener_config() ?? [];
 $usuario_id = $_SESSION['usuario_id'];
+$usuario_nombre = '';
+global $conexion;
+$res = $conexion->query("SELECT nombre FROM usuarios WHERE id = $usuario_id");
+if ($res && $row = $res->fetch_assoc()) {
+    $usuario_nombre = $row['nombre'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -33,9 +39,6 @@ $usuario_id = $_SESSION['usuario_id'];
             UTN Solutions Real State
         </div>
         <div class="header-menu-wrap">
-            <a href="login.php" class="login-btn">
-                <img src="imagenes/login.png" alt="Login" style="width: 32px; height: 32px; vertical-align: middle;">
-            </a>
             <nav class="main-nav">
                 <ul>
                     <?php if (es_admin()): ?>
@@ -57,16 +60,24 @@ $usuario_id = $_SESSION['usuario_id'];
 </html>
     <section class="banner">
         <img src="imagenes/<?php echo $config['imagen_banner'] ?? 'casaInicio.jpg'; ?>" alt="">
-        <h1><?php echo $config['mensaje_banner'] ?? 'BIENVENIDO AL PANEL'; ?></h1>
+        <h1>
+            <?php
+            if (!empty($usuario_nombre)) {
+                echo '¡Bienvenido al panel, ' . htmlspecialchars($usuario_nombre) . '!';
+            } else {
+                echo $config['mensaje_banner'] ?? 'BIENVENIDO AL PANEL';
+            }
+            ?>
+        </h1>
     </section>
     <section id="quienes-somos" class="quienes-somos">
-        <div>
+        <div class="quienes-desc">
             <h2>Quienes Somos</h2>
             <p><?php echo $config['info_quienes_somos'] ?? 'Somos un equipo apasionado por el sector inmobiliario, comprometido en ayudarte a encontrar la 
             propiedad ideal para ti y tu familia. Nos destacamos por nuestro profesionalismo, atención personalizada y conocimiento del mercado, brindando soluciones confiables y acompañamiento en cada paso del proceso. ¡Permítenos ayudarte a cumplir tus sueños!'; ?></p>
         </div>
         <div class="quienes-img">
-            <img src="imagenes/quienesSomos.jpg" alt="Equipo">
+            <img src="imagenes/<?php echo $config['imagen_quienes_somos'] ?? 'quienesSomos.jpg'; ?>" alt="Equipo">
         </div>
     </section>
     <?php
@@ -76,12 +87,11 @@ $usuario_id = $_SESSION['usuario_id'];
         $ventas = obtener_propiedades('venta', null, 3);
         $alquileres = obtener_propiedades('alquiler', null, 3);
     } else {
-     
         global $conexion;
         $usuario_id = $_SESSION['usuario_id'];
-        $destacadas = $conexion->query("SELECT p.*, u.nombre AS agente_nombre FROM propiedades p LEFT JOIN usuarios u ON p.agente_id = u.id WHERE p.agente_id = $usuario_id AND destacada = 1 ORDER BY p.id DESC LIMIT 3")->fetch_all(MYSQLI_ASSOC);
-        $ventas = $conexion->query("SELECT p.*, u.nombre AS agente_nombre FROM propiedades p LEFT JOIN usuarios u ON p.agente_id = u.id WHERE p.agente_id = $usuario_id AND tipo = 'venta' ORDER BY p.id DESC LIMIT 3")->fetch_all(MYSQLI_ASSOC);
-        $alquileres = $conexion->query("SELECT p.*, u.nombre AS agente_nombre FROM propiedades p LEFT JOIN usuarios u ON p.agente_id = u.id WHERE p.agente_id = $usuario_id AND tipo = 'alquiler' ORDER BY p.id DESC LIMIT 3")->fetch_all(MYSQLI_ASSOC);
+        $destacadas = $conexion->query("SELECT p.*, u.nombre AS agente_nombre FROM propiedades p LEFT JOIN usuarios u ON p.agente_id = u.id WHERE destacada = 1 ORDER BY p.id DESC LIMIT 3")->fetch_all(MYSQLI_ASSOC);
+        $ventas = $conexion->query("SELECT p.*, u.nombre AS agente_nombre FROM propiedades p LEFT JOIN usuarios u ON p.agente_id = u.id WHERE tipo = 'venta' ORDER BY p.id DESC LIMIT 3")->fetch_all(MYSQLI_ASSOC);
+        $alquileres = $conexion->query("SELECT p.*, u.nombre AS agente_nombre FROM propiedades p LEFT JOIN usuarios u ON p.agente_id = u.id WHERE tipo = 'alquiler' ORDER BY p.id DESC LIMIT 3")->fetch_all(MYSQLI_ASSOC);
     }
     ?>
     <section class="propiedades">
