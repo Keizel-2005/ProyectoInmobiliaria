@@ -9,7 +9,7 @@ $usuario_id = $_SESSION['usuario_id'];
 <head>
     <meta charset="UTF-8">
     <title>Panel de Control</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="styles/estilos.css">
     <link rel="icon" href="<?php echo $config['icono_principal'] ?? 'icono.png'; ?>">
     <?php
     

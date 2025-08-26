@@ -36,7 +36,7 @@ if (isset($_POST['actualizar'])) {
 <head>
     <meta charset="UTF-8">
     <title>Actualizar Datos Personales</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="styles/estilos.css">
     <?php
     if (!empty($config['colores'])) {
         $colores_actuales = explode(',', $config['colores']);

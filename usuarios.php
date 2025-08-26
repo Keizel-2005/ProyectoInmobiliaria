@@ -57,7 +57,7 @@ $usuarios = $conexion->query("SELECT * FROM usuarios")->fetch_all(MYSQLI_ASSOC);
 <html lang="es">
 <head>
     <title>Gestionar Usuarios</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="styles/estilos.css">
     <?php
     if (!empty($config['colores'])) {
         $colores_actuales = explode(',', $config['colores']);

@@ -13,7 +13,7 @@ $es_admin = es_admin();
 <html lang="es">
 <head>
     <title><?php echo $prop['titulo']; ?></title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="styles/estilos.css">
     <?php
     if (!empty($config['colores'])) {
         $colores_actuales = explode(',', $config['colores']);

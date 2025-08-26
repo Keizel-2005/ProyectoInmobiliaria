@@ -8,7 +8,7 @@ $ventas = obtener_propiedades('venta');
 <head>
     <meta charset="UTF-8">
     <title>Propiedades en Venta</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="styles/estilos.css">
     <?php
     if (!empty($config['colores'])) {
         $colores_actuales = explode(',', $config['colores']);

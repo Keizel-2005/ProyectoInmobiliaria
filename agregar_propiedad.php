@@ -45,7 +45,7 @@ if (isset($_POST['agregar'])) {
 <head>
     <meta charset="UTF-8">
     <title>Agregar Propiedad</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="styles/estilos.css">
     <link rel="icon" href="<?php echo $config['icono_principal'] ?? 'icono.png'; ?>">
     <?php
     if (!empty($config['colores'])) {

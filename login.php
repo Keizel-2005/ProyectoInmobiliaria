@@ -22,7 +22,7 @@ if (isset($_POST['login'])) {
 <html lang="es">
 <head>
     <title>Login</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="styles/estilos.css">
     <style>
         body {
             min-height: 100vh;

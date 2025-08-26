@@ -8,7 +8,7 @@ $alquileres = obtener_propiedades('alquiler');
 <head>
     <meta charset="UTF-8">
     <title>Propiedades en Alquiler</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="styles/estilos.css">
     <?php
     if (!empty($config['colores'])) {
         $colores_actuales = explode(',', $config['colores']);
